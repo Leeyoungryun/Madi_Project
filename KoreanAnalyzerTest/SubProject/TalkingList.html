@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Talking List</title>
+<script type="text/javascript">
+window.onload = function(){
+	document.getElementById("txt").onchange = function(){
+		readTextFile('txt', 'txtout', 'UTF-8');
+	}
+
+}
+
+function readTextFile(inputId, outputId, encoding){
+	var file = document.getElementById(inputId).files[0];
+	
+	var reader = new FileReader();
+	if(encoding){
+		encoding='UTF-8';
+	}
+	reader.readAsText(file,encoding);
+	
+	reader.onload = function(){
+		var output = document.getElementById(outputId);
+		var talking = reader.result;
+		talking = talking.replace(/(\[.*\] )/g,"");
+		talking = talking.replace(/그룹채팅.*/g,"");
+		talking = talking.replace(/저장한 날짜.*/g,"");
+		talking = talking.replace(/---------------.*/g,"");
+		talking = talking.replace(/.*초대했습니다./g,"");
+
+		output.innerHTML = talking;
+	} 
+	
+	reader.onerror = function(e){
+		alert("읽기 오류:" + e.target.error.code);
+		return;
+	}
+}
+</script>
+</head>
+
+<body>
+<h2>Talking List</h2>
+<input type="file" id="txt"><br><br>
+<textarea id="txtout" rows="100" cols="100"></textarea><br><br>
+</body>
+</html>
