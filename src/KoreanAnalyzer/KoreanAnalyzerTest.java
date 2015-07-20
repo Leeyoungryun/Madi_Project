@@ -1,4 +1,4 @@
-package KoreanAnalyzerTest;
+package KoreanAnalyzer;
 import java.io.IOException;
 
 import org.apache.lucene.analysis.kr.morph.MorphException;
