@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="Madi4">
+    <wb-module deploy-name="Madi">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="Madi4"/>
-        <property name="java-output-path" value="/Madi4/build/classes"/>
+        <property name="java-output-path" value="/Madi/build/classes"/>
+        <property name="context-root" value="Madi"/>
     </wb-module>
 </project-modules>
