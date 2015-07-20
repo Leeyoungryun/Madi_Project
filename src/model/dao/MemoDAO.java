@@ -161,7 +161,7 @@ public class MemoDAO {
 	}
 	
 	// 모든 게시물 조회
-	public  static MemoBean[] getAllContents(){
+	public  static MemoBean[] getAllContents(int memeberNum){
 		Connection con = null;	
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -170,12 +170,12 @@ public class MemoDAO {
 		
 		String sql="SELECT MEMO_NUM, MEMBER_NUM, TITLE, CONTENT," +
 				"WRITEDAY," +
-				"MUSIC_NUM FROM MEMO ORDER BY MEMO_NUM DESC";	
+				"MUSIC_NUM FROM MEMO WHERE MEMBER_NUM = ? ORDER BY MEMO_NUM DESC";	
 		
 		try {
 			con = source.getConnection();
 			pstmt = con.prepareStatement(sql);
-			
+			pstmt.setInt(1, memeberNum);
 			rset = pstmt.executeQuery();
 			while(rset.next()){
 			

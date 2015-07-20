@@ -6,6 +6,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.dao.MemoDAO;
 import model.domain.MemoBean;
@@ -29,7 +30,10 @@ import model.domain.MemoBean;
 		}		
 		
 		if(command.equals("list")){
-			MemoBean [] list = MemoDAO.getAllContents();			
+			HttpSession session= request.getSession();
+			int memberNum=(int)(session.getAttribute("memberNum"));
+			
+			MemoBean [] list = MemoDAO.getAllContents(memberNum);			
 			request.setAttribute("list", list);
 			
 			RequestDispatcher rd=request.getRequestDispatcher("list.jsp");
