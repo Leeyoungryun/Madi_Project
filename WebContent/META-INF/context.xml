@@ -5,7 +5,7 @@
               type="javax.sql.DataSource" 
               driverClassName="oracle.jdbc.OracleDriver"
               url="jdbc:oracle:thin:@127.0.0.1:1521:xe"
-              username="puppy" password="1234" 
+              username="CCAM" password="245890" 
               maxActive="20"
               maxIdle="10"
               maxWait="-1"/> 
