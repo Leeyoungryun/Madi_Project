@@ -42,23 +42,23 @@
 		    </tr>
 		<%
 			}else{
-				MemoBean gBookContent = null;
+				MemoBean memo = null;
 				for(int i = 0; i <list.length ; i++){
-			 gBookContent = list[i];
+			 memo = list[i];
 		%>
 				    <tr>
 				        <td bgcolor="">
 				            <p align="center"><span style="font-size:9pt;">
-				            <%=gBookContent.getMemoNum()%></span></p>
+				            <%=memo.getMemoNum()%></span></p>
 				        </td>
 				        <td bgcolor="">
 							<p><span style="font-size:9pt;">
-							<a href="memo.do?command=read&num=<%=gBookContent.getMemoNum()%>">
-							<%=gBookContent.getTitle() %></a></span></p>
+							<a href="memo.do?command=read&num=<%=memo.getMemoNum()%>">
+							<%=memo.getTitle() %></a></span></p>
 				        </td>
 				        <td bgcolor="">
 				            <p align="center"><span style="font-size:9pt;">
-				            <%= gBookContent.getWriteday()%></span></p>
+				            <%= memo.getWriteday()%></span></p>
 				        </td>
 				    </tr>
 			<% 

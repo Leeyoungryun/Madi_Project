@@ -10,8 +10,6 @@
     <url-pattern>/memo.do</url-pattern>
   </servlet-mapping>
   <servlet>
-    <description></description>
-    <display-name>Login</display-name>
     <servlet-name>Login</servlet-name>
     <servlet-class>controller.Login</servlet-class>
   </servlet>
@@ -20,8 +18,6 @@
     <url-pattern>/login.do</url-pattern>
   </servlet-mapping>
   <servlet>
-    <description></description>
-    <display-name>Member</display-name>
     <servlet-name>Member</servlet-name>
     <servlet-class>controller.Member</servlet-class>
   </servlet>
