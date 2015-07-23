@@ -11,7 +11,6 @@ public class MemberBean {
 	public MemberBean() { }
 
 	public MemberBean(int memberNum, String email, String name, String phone, String local) {
-		super();
 		this.memberNum = memberNum;
 		this.email = email;
 		this.name = name;
@@ -21,7 +20,6 @@ public class MemberBean {
 
 	public MemberBean(int memberNum, String email, String pw, String name,
 			String phone, String local) {
-		super();
 		this.memberNum = memberNum;
 		this.email = email;
 		this.pw = pw;

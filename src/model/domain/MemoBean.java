@@ -50,36 +50,47 @@ public class MemoBean implements Serializable{
 	public int getMemoNum() {
 		return memoNum;
 	}
+	
 	public void setMemoNum(int memoNum) {
 		this.memoNum = memoNum;
 	}
+	
 	public int getMemberNum() {
 		return memberNum;
 	}
+	
 	public void setMemberNum(int memberNum) {
 		this.memberNum = memberNum;
 	}
+	
 	public String getTitle() {
 		return title;
 	}
+	
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	
 	public String getContent() {
 		return content;
 	}
+	
 	public void setContent(String content) {
 		this.content = content;
 	}
+	
 	public String getWriteday() {
 		return writeday;
 	}
+	
 	public void setWriteday(String writeday) {
 		this.writeday = writeday;
 	}
+	
 	public int getMusicNum() {
 		return musicNum;
 	}
+	
 	public void setMusicNum(int musicNum) {
 		this.musicNum = musicNum;
 	}
