@@ -29,7 +29,7 @@ public class PhonemeKernelClassifier implements Serializable{
 			
 			// 음운으로 변환된 arff파일이 아닐 경우, 음운 형태로 변환 
 			String arffPath = (!path[path.length-1].equals("arff"))?convertToPhoneme(dataPath):dataPath;
-			svm = createLearnedSVM(arffPath, subsequenceLength, lambda);
+			//svm = createLearnedSVM(arffPath, subsequenceLength, lambda);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -103,48 +103,7 @@ public class PhonemeKernelClassifier implements Serializable{
 		return result;
 	}
 	
-	public String validate(int folds) throws Exception{
-		StringBuilder out = new StringBuilder();
-		
-		   // randomize data
-	    Random rand = new Random(1);
-	    Instances randData = new Instances(data);
-	    randData.randomize(rand);
-	    if (randData.classAttribute().isNominal())
-	      randData.stratify(folds);
-
-	    // perform cross-validation
-	    out.append("\n\r");
-	    out.append("=== Setup ===\n\r");
-	    out.append("Dataset: " + data.relationName() + "\n\r");
-	    out.append("Folds: " + folds + "\n\r");
-	    out.append("\n\r");
-	    Evaluation evalAll = new Evaluation(randData);
-	    for (int n = 0; n < folds; n++) {
-	      Evaluation eval = new Evaluation(randData);
-	      Instances train = randData.trainCV(folds, n);
-	      Instances test = randData.testCV(folds, n);
-	      // the above code is used by the StratifiedRemoveFolds filter, the
-	      // code below by the Explorer/Experimenter:
-	      // Instances train = randData.trainCV(folds, n, rand);
-
-	      // build and evaluate classifier
-	      Classifier clsCopy = SMO.makeCopy(svm);
-	      clsCopy.buildClassifier(train);
-	      eval.evaluateModel(clsCopy, test);
-	      evalAll.evaluateModel(clsCopy, test);
-
-	      // output evaluation
-	      out.append("\n\r");
-	      out.append(eval.toMatrixString("=== Confusion matrix for fold " + (n+1) + "/" + folds + " ===\n"));
-	    }
-
-	    // output evaluation
-	    out.append("\n\r");
-	    out.append(evalAll.toSummaryString("=== " + folds + "-fold Cross-validation ===", false));
-		
-		return out.toString();
-	}
+	
 	
 	protected SMO createLearnedSVM(String dataset, int subsequenceLength, 
 			double lambda)	throws Exception{
