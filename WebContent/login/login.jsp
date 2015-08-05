@@ -4,6 +4,7 @@
 <html>
 	<head>
 		<title>login</title>
+		 <link href="<%=request.getContextPath()%>/css/login.css" rel="stylesheet">
 		<script language="JavaScript">
 		function signin(){
 			document.location.href="<%=request.getContextPath()%>/signin/signin.jsp"
@@ -19,14 +20,14 @@
 				<a name="5"><%@include file="../header2.jsp"%></a>
 			</c:otherwise>
 		</c:choose>
-		<form action="<%=request.getContextPath()%>/login.do" class="form-signin" method="post">
-			<label for="inputEmail" class="sr-only">Email address</label> 
-			<input type="email" name="email" id="Email" placeholder="Email address" required autofocus>
-			<label for="inputPassword">Password</label>
-			<input type="password" name="pw" id="pw" placeholder="Password" required>
+		<form action="<%=request.getContextPath()%>/login.do" method="post" class="form form--login framed">
+			<input type="email" name="email" id="Email" placeholder="Email address" class="input input--top" required autofocus/>
+			<input type="password" name="pw" id="pw" placeholder="Password" class="input" required/>
 			<input type="hidden" name="command" value="login">
-			<input value="login" type="submit">
-			<input value="Sing In" type="button" onclick="location.href='<%=request.getContextPath()%>/signin/signin.jsp'">
+			<input type="submit" value="Log in" class="input input--submit" />
+		    <input value="Sing In" type="button" onclick="location.href='<%=request.getContextPath()%>/signin/signin.jsp'" class="text text--small text--centered">
 		</form>
+		 
+		<div class="fullscreen-bg"></div>
 	</body>
 </html>
