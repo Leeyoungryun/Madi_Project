@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<link href="<%=request.getContextPath()%>/index.css" rel="stylesheet">
+		<link href="<%=request.getContextPath()%>/css/index.css" rel="stylesheet">
 		<title>Madi</title>
 	</head>
 	<body>
@@ -49,9 +49,7 @@
            		<div class="TAPEhole" id="TAPEhole01"></div>
                 <div class="TAPEhole" id="TAPEhole02"></div>
         	</div>
-
         </div>
-		<br><br><br>
-		<p>Madi</p>
+		<a style="text-decoration: none;" href="write.jsp"><p style="margin-top: 10px;">Madi</p></a>
 	</body>
 </html>

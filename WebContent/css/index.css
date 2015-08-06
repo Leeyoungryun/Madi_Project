@@ -424,8 +424,8 @@ div.TAPEdescription:before{
     top:-5px;
 }
 
-.sideA div.TAPEdescription:before{content:"A";}
-.sideB div.TAPEdescription:before{content:"B";}
+.sideA div.TAPEdescription:before{content:"M";}
+.sideB div.TAPEdescription:before{content:"M";}
 
 
 /*Animation*/
