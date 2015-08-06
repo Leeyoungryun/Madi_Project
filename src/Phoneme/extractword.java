@@ -69,9 +69,9 @@ public class extractword {
 	
 	public static void splitWithVerb(String input) throws MorphException
 	{
-		ArrayList sentenc
+		ArrayList sentences;
 		
-		es= new ArrayList();
+		sentences= new ArrayList();
 		String[] verbs= k_analyzer.extractVerb(input);
 		int[] verb_index = null;
 		for(int i=0; i<verbs.length; i++){
@@ -79,7 +79,7 @@ public class extractword {
 		}
 		for(int i=0; i<verb_index.length; i++)
 		{
-		sentences.add(input.substring(, verb_index[i])
+		//sentences.add(input.substring(, verb_index[i]);
 		}
 	
 	}

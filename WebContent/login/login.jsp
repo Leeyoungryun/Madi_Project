@@ -20,13 +20,13 @@
 				<a name="5"><%@include file="../header2.jsp"%></a>
 			</c:otherwise>
 		</c:choose>
-		<p>Madi</p>
 		<form action="<%=request.getContextPath()%>/login.do" method="post" class="form form--login framed">
+			<p style="margin-top: 0px; margin-bottom: 0px;">Madi</p>
 			<input type="email" name="email" id="Email" placeholder="Email address" class="input input--top" required autofocus/>
 			<input type="password" name="pw" id="pw" placeholder="Password" class="input" required/>
 			<input type="hidden" name="command" value="login">
 			<input type="submit" value="Log in" class="input input--submit" />
-		    <input value="Sing In" type="button" onclick="location.href='<%=request.getContextPath()%>/signup/signup.jsp'" class="text text--small text--centered">
+			<a href="<%=request.getContextPath()%>/signup/signup.jsp">Sign up now</a> 
 		</form>
 		 
 		<div class="fullscreen-bg"></div>
