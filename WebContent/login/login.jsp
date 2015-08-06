@@ -6,8 +6,8 @@
 		<title>login</title>
 		 <link href="<%=request.getContextPath()%>/css/login.css" rel="stylesheet">
 		<script language="JavaScript">
-		function signin(){
-			document.location.href="<%=request.getContextPath()%>/signin/signin.jsp"
+		function signup(){
+			document.location.href="<%=request.getContextPath()%>/signup/signup.jsp"
 		}
 		</script>
 	</head>
@@ -20,12 +20,13 @@
 				<a name="5"><%@include file="../header2.jsp"%></a>
 			</c:otherwise>
 		</c:choose>
+		<p>Madi</p>
 		<form action="<%=request.getContextPath()%>/login.do" method="post" class="form form--login framed">
 			<input type="email" name="email" id="Email" placeholder="Email address" class="input input--top" required autofocus/>
 			<input type="password" name="pw" id="pw" placeholder="Password" class="input" required/>
 			<input type="hidden" name="command" value="login">
 			<input type="submit" value="Log in" class="input input--submit" />
-		    <input value="Sing In" type="button" onclick="location.href='<%=request.getContextPath()%>/signin/signin.jsp'" class="text text--small text--centered">
+		    <input value="Sing In" type="button" onclick="location.href='<%=request.getContextPath()%>/signup/signup.jsp'" class="text text--small text--centered">
 		</form>
 		 
 		<div class="fullscreen-bg"></div>
