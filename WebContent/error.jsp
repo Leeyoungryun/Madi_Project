@@ -6,6 +6,6 @@
 	</head>
 	<body>
 		죄송합니다. 문제가 발생하였습니다.<br>
-		<a href="index.html">home</a>
+		<a href="index.jsp">home</a>
 	</body>
 </html>
