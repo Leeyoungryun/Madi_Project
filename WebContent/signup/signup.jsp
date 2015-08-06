@@ -24,10 +24,11 @@
 	<body class="align">
 	  <div class="site__container">
 	    <div class="grid__container">
+	      <p style="margin-top: 0px; margin-bottom: 30px;">SingUp</p>
 	      <form method="post" action="<%=request.getContextPath()%>/member.do" name="f" class="form form--login">
 	     	 <input type="hidden" value="signup" name="command">
 	        <div class="form__field">
-	          <label class="fontawesome-user"><span class="hidden">Email Address</span></label>
+	          <label class="fontawesome-envelope"><span class="hidden">Email Address</span></label>
 	          <input type="text" name="email" class="form__input" placeholder="Email Address" required>
 	          <input type="hidden" id="reEamil" name="reEamil" value="">
 	        </div>
@@ -38,22 +39,22 @@
 	        </div>
 	        
 	        <div class="form__field">
-	          <label class="fontawesome-lock"><span class="hidden">Password Confirm</span></label>
+	          <label class="fontawesome-check"><span class="hidden">Password Confirm</span></label>
 	          <input type="password" name="password2" class="form__input" placeholder="Password Confirm" required>
 	        </div>
 	        
 	        <div class="form__field">
-	          <label class="fontawesome-lock"><span class="hidden">Name</span></label>
+	          <label class="fontawesome-user"><span class="hidden">Name</span></label>
 	          <input type="text" name="name" class="form__input" placeholder="Name" required>
 	        </div> 
 	        
 	        <div class="form__field">
-	          <label class="fontawesome-lock"><span class="hidden">Phone Number</span></label>
+	          <label class="fontawesome-phone"><span class="hidden">Phone Number</span></label>
 	          <input type="text" name="phone" class="form__input" placeholder="Phone Number" required>
 	        </div>
 	        
 	        <div class="form__field">
-	          <label class="fontawesome-lock" for="login__password"><span class="hidden">Local</span></label>
+	          <label class="fontawesome-map-marker"><span class="hidden">Local</span></label>
 	          <input type="text" name="local" class="form__input" placeholder="Local" required>
 	        </div>
 	        <br><br>        
