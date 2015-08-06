@@ -20,6 +20,7 @@
 				<a name="5"><%@include file="../header2.jsp"%></a>
 			</c:otherwise>
 		</c:choose>
+		<p>Madi</p>
 		<form action="<%=request.getContextPath()%>/login.do" method="post" class="form form--login framed">
 			<input type="email" name="email" id="Email" placeholder="Email address" class="input input--top" required autofocus/>
 			<input type="password" name="pw" id="pw" placeholder="Password" class="input" required/>
