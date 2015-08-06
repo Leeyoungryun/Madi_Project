@@ -119,4 +119,5 @@ public class PhonemeKernelClassifier implements Serializable{
 		
 		return smo;
 	}
+
 }
