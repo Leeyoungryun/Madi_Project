@@ -1,5 +1,5 @@
 
-package Phoneme;
+package ExtractWord;
 
 import java.util.*;
 
@@ -55,17 +55,18 @@ public class TextMorphAnalyzer {
     		for(AnalysisOutput item:list){
     			if(item.getPos() == 'Z' && item.getScore() >= 50){
     				listStr.add(item.getStem());
+    				
     			}
     			if(item.getPos() == 'V' && item.getScore() >= 90){
     				if(!(item.getStem().equals("하") || item.getStem().equals("되"))){
     					listStr.add(tempNoun);
     					tempNoun = null;
     				}
-    				listStr.add(((tempNoun !=null)?tempNoun:"") + item.getStem() + "다");
+    				listStr.add(((tempNoun !=null)?tempNoun:"") + item.getStem() );
     			}
     			if(item.getPos() == 'N' && item.getVsfx() != null && item.getScore() >= 90){
     				if(item.getVsfx().equals("하") || item.getVsfx().equals("되")){
-        				listStr.add(item.getStem() + item.getVsfx() + "다"); 		
+        				listStr.add(item.getStem() + item.getVsfx()); 		
     				}
     				else{
     					listStr.add(item.getStem());

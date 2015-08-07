@@ -69,7 +69,7 @@ public class PhonemeKernelClassifier implements Serializable{
 //			String temp = KorFilter.filter(data[0]);
 			String temp = data[0];//첫번째 단어
 			String temp2 = data[1];//두번째 단어(특징)
-//			String temp3 = data[2];
+	//		String temp3 = data[2];
 
 			String sentance = PhonemeExtractor.split(temp);
 			String sentance2 = PhonemeExtractor.split(temp2);
