@@ -32,13 +32,13 @@ public class MemoDAO {
 	}
 		
 	
-	// °Ô½Ã¹° µî·Ï
+	// ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½ï¿½
 	public static boolean writeContent(MemoBean vo){
 		Connection con = null;	
 		PreparedStatement pstmt = null;
 		boolean result = false;
 		
-		String sql = "INSERT INTO MEMO VALUES(SEQ_MEMO_NUM.NEXTVAL,?,?,?,SYSDATE,0)";
+		String sql = "INSERT INTO MEMO VALUES(SEQ_MEMO_NUM.NEXTVAL,?,?,?,SYSDATE,1)";
 
 		try {
 			con = source.getConnection();
@@ -60,7 +60,7 @@ public class MemoDAO {
 		return result;		
 	}
 	
-	//Á¶È¸ - boolean flag °ª = readÀÎ °æ¿ì true, updateÀÎ °æ¿ì  false
+	//ï¿½ï¿½È¸ - boolean flag ï¿½ï¿½ = readï¿½ï¿½ ï¿½ï¿½ï¿½ true, updateï¿½ï¿½ ï¿½ï¿½ï¿½  false
 	public static MemoBean getContent(int  num, boolean flag){		
 		Connection con = null;	
 		PreparedStatement pstmt = null;
@@ -100,7 +100,7 @@ public class MemoDAO {
 		return vo;
 	}
 	
-	//°Ô½Ã¹° »èÁ¦
+	//ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public  static boolean deleteContent(int num){
 		Connection con = null;	
 		PreparedStatement pstmt = null;
@@ -128,7 +128,7 @@ public class MemoDAO {
 		return result;
 	}
 	
-	// °Ô½Ã¹° ¼öÁ¤
+	// ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public  static boolean updateContent(MemoBean vo){
 		Connection con = null;	
 		PreparedStatement pstmt = null;
@@ -160,7 +160,7 @@ public class MemoDAO {
 		
 	}
 	
-	// ¸ðµç °Ô½Ã¹° Á¶È¸
+	// ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½È¸
 	public  static MemoBean[] getAllContents(int memeberNum){
 		Connection con = null;	
 		PreparedStatement pstmt = null;
