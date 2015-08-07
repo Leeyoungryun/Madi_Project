@@ -7,6 +7,7 @@ import java.io.*;
 
 import org.apache.lucene.analysis.kr.morph.MorphException;
 
+import weka.classifiers.Classifier;
 import ExtractWord.TextMorphAnalyzer;
 import Phoneme.PhonemeKernelClassifier;
 
@@ -35,12 +36,11 @@ public class PhonemeTextEmotion implements Serializable {
 	 * @return 학습된 PhonemeTextEmotion 객체
 	 * @throws IOException
 	 */
-	public static PhonemeTextEmotion getLearnedInstance(String datasetPath)
+	public static PhonemeTextEmotion getLearnedInstance(PhonemeKernelClassifier classifier)
 			throws IOException {
 		PhonemeTextEmotion textEmotion = new PhonemeTextEmotion();
 
-		textEmotion.classifier = new PhonemeKernelClassifier(datasetPath, 3,
-				0.8, true);
+		textEmotion.classifier = classifier;
 
 		return textEmotion;
 	}
@@ -62,13 +62,6 @@ public class PhonemeTextEmotion implements Serializable {
 	 */
 	public String putData(String string) throws MorphException {
 		String emotion = "";
-		TextMorphAnalyzer k_Analyzer = new TextMorphAnalyzer();
-
-		String input1 = string;
-		String input2 = k_Analyzer.wordSpaceAnalyze(input1); // 띄어쓰기
-		String temp2 = k_Analyzer.morphAnalyze(input2).toString();
-		String[] verbs = k_Analyzer.extractVerb(input2);// 동사 추출
-	
 		String word1 = null,word2 = null;//뽑아낼 두 단어
 		
 		//
@@ -82,11 +75,13 @@ public class PhonemeTextEmotion implements Serializable {
 
 		return emotion;
 	}
+	
+
 
 	/**
-	 * 감성 추출(6가지 감성)
+	 * 감성 추출(7가지 감성)
 	 * 
-	 * @return EmoInfo 타입의 감성
+	 * @return String 타입의 감성
 	 * @throws MorphException 
 	 */
 	public String getEmotion(String string) throws MorphException {
