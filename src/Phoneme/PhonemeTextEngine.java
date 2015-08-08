@@ -1,28 +1,20 @@
 /**
- * 
+ * 학습된 분류기를 파일로 저장하고 불러와서 감정을 추출할 수 있게 하기위한 클래스
+ * (학습된 분류기와 감정추출을 위한 함수들을 포함한다)
  */
-package EmotionExtract;
+package Phoneme;
 
 import java.io.*;
 
 import org.apache.lucene.analysis.kr.morph.MorphException;
 
-import weka.classifiers.Classifier;
-import ExtractWord.TextMorphAnalyzer;
-import Phoneme.PhonemeKernelClassifier;
 
-
-/**
- * @author CrossPendent
- * 
- */
-public class PhonemeTextEmotion implements Serializable {
+public class PhonemeTextEngine implements Serializable {
 
 	/**
 	 * 
 	 */
-	//private static final long serialVersionUID = 5522966953158140000L;
-
+	private static final long serialVersionUID = 1L;
 	private PhonemeKernelClassifier classifier = null;
 	private String emotion = null;
 
@@ -31,21 +23,21 @@ public class PhonemeTextEmotion implements Serializable {
 	 * 
 	 * @param parent
 	 *            호출된 객체 레퍼런스(일반적으로 this)
-	 * @param datasetPath
-	 *            데이터 셋 파일(일반적인 텍스트형태의 확장자는 txt, 음운으로 분리된 데이터셋의 확장자는 arff)
-	 * @return 학습된 PhonemeTextEmotion 객체
+	 * @param 학습된 classifier
+	 *          
+	 * @return 학습된 classifier를 포함하는 PhonemeTextEngine 객체
 	 * @throws IOException
 	 */
-	public static PhonemeTextEmotion getLearnedInstance(PhonemeKernelClassifier classifier)
+	public static PhonemeTextEngine getLearnedInstance(PhonemeKernelClassifier classifier)
 			throws IOException {
-		PhonemeTextEmotion textEmotion = new PhonemeTextEmotion();
+		PhonemeTextEngine textEmotion = new PhonemeTextEngine();
 
 		textEmotion.classifier = classifier;
 
 		return textEmotion;
 	}
 
-	protected PhonemeTextEmotion() {
+	protected PhonemeTextEngine() {
 		// TODO Auto-generated constructor stub
 
 		this.emotion = new String();
@@ -65,14 +57,29 @@ public class PhonemeTextEmotion implements Serializable {
 		String word1 = null,word2 = null;//뽑아낼 두 단어
 		
 		//
-		//여기에 단어추출알고리즘이 들어가야함
+		//여기에 단어추출알고리즘이 들어가야함!!!
 		//
 		
 		int result = classifier.classifyEmotion(word1 + "\t" + word2);
 		
-	
-//		int result = classifier.classifyEmotion(temp10 + "\t" + str);
 
+		switch(result)
+		{
+			case 1 :
+			emotion="angry";
+			case 2: 
+				emotion ="";
+			case 3:
+				emotion ="";
+			case 4:
+				emotion ="";
+			case 5:
+				emotion ="";
+			case 6:
+				emotion ="";
+			case 7:
+				emotion ="";
+		}
 		return emotion;
 	}
 	

@@ -6,6 +6,8 @@ import java.io.ObjectInputStream;
 
 import org.apache.lucene.analysis.kr.morph.MorphException;
 
+import Phoneme.PhonemeTextEngine;
+
 
 public class Emotion_test {
 	
@@ -19,7 +21,7 @@ public class Emotion_test {
 			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(
 					"dataset/2014journal.dat"));
 
-			PhonemeTextEmotion textEngine = (PhonemeTextEmotion) ois
+			PhonemeTextEngine textEngine = (PhonemeTextEngine) ois
 					.readObject();
 			ois.close();
 			
