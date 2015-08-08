@@ -17,7 +17,15 @@ import weka.classifiers.functions.supportVector.*;
 import weka.core.*;
 import weka.core.converters.ConverterUtils.DataSource;
 
+/**
+ * arff 파일을 생성하고 생성한 파일로 svm 분류기 객체를 생성하는 클래스
+ * @parameter 텍스트파일
+ * 텍스트파일을 음운으로 쪼개기위해 phonemeExtractor 의 split 함수 호출
+ */
+
 public class PhonemeKernelClassifier implements Serializable{
+	
+	
 	private SMO svm = null;// smo 객체생성
 	private Instances data;
 	private boolean debug = false;
@@ -29,7 +37,7 @@ public class PhonemeKernelClassifier implements Serializable{
 			
 			// 음운으로 변환된 arff파일이 아닐 경우, 음운 형태로 변환 
 			String arffPath = (!path[path.length-1].equals("arff"))?convertToPhoneme(dataPath):dataPath;
-			//svm = createLearnedSVM(arffPath, subsequenceLength, lambda);
+			svm = createLearnedSVM(arffPath, subsequenceLength, lambda);//svm(smo) 분류기 생성.
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -66,14 +74,13 @@ public class PhonemeKernelClassifier implements Serializable{
 			
 			//모델크리에이터에 들어가는 txt 는 이미 두단어(두특징)가 뽑아진 txt 파일이어야한다다.
 			
-//			String temp = KorFilter.filter(data[0]);
 			String temp = data[0];//첫번째 단어
 			String temp2 = data[1];//두번째 단어(특징)
-	//		String temp3 = data[2];
-
-			String sentance = PhonemeExtractor.split(temp);
+			//String temp3 = data[2];
+			
+			String sentance = PhonemeExtractor.split(temp);//텍스트파일을 음운으로 쪼개기위해 phonemeExtractor 의 split 함수 호출
 			String sentance2 = PhonemeExtractor.split(temp2);
-//			String sentance3 = PhonemeExtractor.split(temp3);
+			//String sentance3 = PhonemeExtractor.split(temp3);
 						
 			fout.println("'" + sentance + "'" + ","+"'" + sentance2 + "'" +  "," + emotion);
 		}
@@ -103,8 +110,12 @@ public class PhonemeKernelClassifier implements Serializable{
 		return result;
 	}
 	
-	
-	
+
+	/**
+	 * svm(smo) 분류기를 생성하고 학습시킨다.
+	 * @parameter arff 파일 
+	 * 입력받은 arff 파일로 svm 분류기를 학습시킨다.
+	 */
 	protected SMO createLearnedSVM(String dataset, int subsequenceLength, 
 			double lambda)	throws Exception{
 		SMO smo = new SMO();
