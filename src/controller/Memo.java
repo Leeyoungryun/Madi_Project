@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import ExtractWord.extractword;
+import ExtractWord.writeTest;
 import model.dao.MemoDAO;
 import model.domain.MemoBean;
 
@@ -50,17 +52,20 @@ import model.domain.MemoBean;
 				return;
 			}
 			
-			int memberNum=Integer.parseInt(member);	
-			MemoBean gContent=new MemoBean(memberNum,title,content);
-			boolean result = MemoDAO.writeContent(gContent);
-		
-			if(result){
-				response.sendRedirect("recommend.jsp"); 
-				return;
-			}else{
-				response.sendRedirect("error.jsp");
-				return;					
+			if(writeTest.test(content)){	
+				int memberNum=Integer.parseInt(member);	
+				MemoBean gContent=new MemoBean(memberNum,title,content);
+				boolean result = MemoDAO.writeContent(gContent);
+			
+				if(result){
+					response.sendRedirect("recommend.jsp"); 
+					return;
+				}else{
+					response.sendRedirect("error.jsp");
+					return;					
+				}
 			}
+			
 		}else if(command.equals("read")){
 			String strNum=request.getParameter("num");
 			
