@@ -21,7 +21,8 @@
 			제목<br><textarea name="title" cols="30" rows="1"></textarea><br>
 			내 용<br><textarea name="content" cols="30" rows="10"></textarea><br>
 			<input type="text" name="hashtag1">
-			<input type="text" name="hashtag2"><br>	
+			<input type="text" name="hashtag2">
+			<input type="text" name="hashtag3"><br>	
 			<input type=submit value=글쓰기> 
 			<input type=reset value=다시쓰기><br>
 		</form>
