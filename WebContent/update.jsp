@@ -23,6 +23,9 @@
 		작성자 <input type=text name="member" size="30" value="<%=resultContent.getMemberNum()%>"><br>
 		제 목<input type=text name="title" size="50" value="<%=resultContent.getTitle()%>"><br>
 	       내 용<textarea name="content" cols="50" rows="10"><%=resultContent.getContent()%></textarea><br>
+	    <input type="text" name="hashtag1" value="<%=resultContent.getHashTag1()%>">
+		<input type="text" name="hashtag2" value="<%=resultContent.getHashTag2()%>">
+		<input type="text" name="hashtag3" value="<%=resultContent.getHashTag3()%>"><br>	   
 		<input type="submit" value="수정하기"> <input type="reset" value="다시쓰기"><br>
 	</form>
 	

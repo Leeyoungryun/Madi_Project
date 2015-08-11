@@ -38,7 +38,7 @@ public class MemoDAO {
 		PreparedStatement pstmt = null;
 		boolean result = false;
 		
-		String sql = "INSERT INTO MEMO VALUES(SEQ_MEMO_NUM.NEXTVAL,?,?,?,SYSDATE,1)";
+		String sql = "INSERT INTO MEMO VALUES(SEQ_MEMO_NUM.NEXTVAL,?,?,?,?,?,?,SYSDATE,1)";
 
 		try {
 			con = source.getConnection();
@@ -47,6 +47,10 @@ public class MemoDAO {
 	        pstmt.setInt(1,vo.getMemberNum());
 	        pstmt.setString(2,vo.getTitle());
 	        pstmt.setString(3, vo.getContent());
+	        pstmt.setString(4, vo.getHashTag1());
+	        pstmt.setString(5, vo.getHashTag2());
+	        pstmt.setString(6, vo.getHashTag3());
+	        
 			int count = pstmt.executeUpdate();			
 			if(count != 0){
 				result = true;
@@ -68,7 +72,7 @@ public class MemoDAO {
 		MemoBean vo  = null;
 		//String sql1="UPDATE memo set readnum=readnum+1 WHERE num=?";	
 		
-		String sql2="SELECT MEMBER_NUM, TITLE, CONTENT, TO_CHAR(WRITEDAY,'yyyy/mm/dd hh24:mi:ss'), MUSIC_NUM FROM MEMO WHERE MEMO_NUM = ?";
+		String sql2="SELECT MEMBER_NUM, TITLE, CONTENT, HASHTAG1, HASHTAG2, HASHTAG3, TO_CHAR(WRITEDAY,'yyyy/mm/dd hh24:mi:ss'), MUSIC_NUM FROM MEMO WHERE MEMO_NUM = ?";
 
 		try {
 			con = source.getConnection();
@@ -85,10 +89,10 @@ public class MemoDAO {
 			pstmt = con.prepareStatement(sql2);
 			pstmt.setInt(1, num);	
 			rset = pstmt.executeQuery();
-			
+		
 			if(rset.next()){
 				vo = 	new MemoBean(num, rset.getInt(1),
-						rset.getString(2),rset.getString(3),rset.getString(4),rset.getInt(5));
+						rset.getString(2), rset.getString(3), rset.getString(4), rset.getString(5), rset.getString(6), rset.getString(7),rset.getInt(8));
 			}
 
 			
@@ -168,9 +172,7 @@ public class MemoDAO {
 		MemoBean[] list  = null;
 		ArrayList alist = new ArrayList();
 		
-		String sql="SELECT MEMO_NUM, MEMBER_NUM, TITLE, CONTENT," +
-				"WRITEDAY," +
-				"MUSIC_NUM FROM MEMO WHERE MEMBER_NUM = ? ORDER BY MEMO_NUM DESC";	
+		String sql="SELECT MEMO_NUM, MEMBER_NUM, TITLE, CONTENT, HASHTAG1, HASHTAG2, HASHTAG3, WRITEDAY, MUSIC_NUM FROM MEMO WHERE MEMBER_NUM = ? ORDER BY MEMO_NUM DESC";	
 		
 		try {
 			con = source.getConnection();
@@ -178,11 +180,10 @@ public class MemoDAO {
 			pstmt.setInt(1, memeberNum);
 			rset = pstmt.executeQuery();
 			while(rset.next()){
-			
-				alist.add(	new MemoBean(rset.getInt(1),rset.getInt(2),
-						rset.getString(3),rset.getString(4),rset.getString(5)
-		 				,rset.getInt(6)));
+				alist.add(new MemoBean(rset.getInt(1), rset.getInt(2), rset.getString(3), rset.getString(4), 
+						rset.getString(5), rset.getString(6), rset.getString(7), rset.getString(8), rset.getInt(9)));
 			}
+			
 			list = new MemoBean[alist.size()];
 			alist.toArray(list);
 			
@@ -207,6 +208,7 @@ public class MemoDAO {
 			e.printStackTrace();
 		}
 	}
+	
 	public  static void close(ResultSet rset, Statement stmt, Connection con){
 		try{
 			if(rset != null){
