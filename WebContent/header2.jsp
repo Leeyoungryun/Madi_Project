@@ -3,9 +3,7 @@
 <html>
 	<head>
 		<title>로그인 후 header</title>
-	</head>
-	<body>
 		${member.name} 로그인
 		<a href="<%=request.getContextPath()%>/login.do?command=logout">Logout</a>
-	</body>
+	</head>
 </html>
