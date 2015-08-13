@@ -3,6 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
+		<link href = "<%=request.getContextPath()%>/css/write.css" rel="stylesheet">
 		<title>수정</title>
 		<script>
 			function checkValid() {
@@ -17,20 +18,37 @@
 		</script>
 	</head>
 	<body>
-	<form name=updateForm method=post action="memo.do" onSubmit='return checkValid()'>
-	    <input type="hidden" value="update" name="command">
-	    <input type='hidden' name='num' value="<%=resultContent.getMemoNum()%>">
-		작성자 <input type=text name="member" size="30" value="<%=resultContent.getMemberNum()%>"><br>
-		제 목<input type=text name="title" size="50" value="<%=resultContent.getTitle()%>"><br>
-	       내 용<textarea name="content" cols="50" rows="10"><%=resultContent.getContent()%></textarea><br>
-	    <input type="text" name="hashtag1" value="<%=resultContent.getHashTag1()%>">
-		<input type="text" name="hashtag2" value="<%=resultContent.getHashTag2()%>">
-		<input type="text" name="hashtag3" value="<%=resultContent.getHashTag3()%>"><br>	   
-		<input type="submit" value="수정하기"> <input type="reset" value="다시쓰기"><br>
-	</form>
+		<div class = "container">
+		  <div class = "grid_9">
+		    <article class = "post post-blog">
+		     <br><br><br>
+		      <img src = "http://placehold.it/960x250/efefef"/>
+		      <div class = "details">    
+			      <form name=updateForm method=post action="memo.do" onSubmit='return checkValid()'>
+			      	<input type="hidden" value="update" name="command">
+			      	<input type="hidden" name='num' value="<%=resultContent.getMemoNum()%>">
+			      	<input type="hidden" name="member" size="30" value="<%=resultContent.getMemberNum()%>">
 	
-	<a href="memo.do">리스트로 돌아가기</a>
-	
-	
+					<div class="meta">
+			          <p>Written by <strong><%=resultContent.getMemberNum()%></strong></p>
+			        </div>
+					<input type = "text" name = "title" cols = "30" rows = "1" class = "no-line" placeholder = "<%=resultContent.getTitle()%>"><br><br>
+					<p>Content</p><textarea name = "content" cols = "30" rows="5" class = "no-line"><%=resultContent.getContent()%></textarea><br><br><br>
+			        <input type = "text" name = "hashtag1" class = "btn no-line" value = "<%=resultContent.getHashTag1()%>">&nbsp;&nbsp;
+			        <input type = "text" name = "hashtag2" class = "btn no-line" value = "<%=resultContent.getHashTag2()%>">&nbsp;&nbsp;
+			        <input type = "text" name = "hashtag3" class = "btn no-line" value = "<%=resultContent.getHashTag3()%>"><br><br>
+			        <div class="intents">
+			        	<span class="icon-heart"></span>
+						<span class="count"><%=resultContent.getWriteday()%></span>
+			        </div>
+					<div class="btn-group" data-grouptype="OR">
+						<input type="submit" value="Update" class="no-line btn btn-primary btn-large btn-caps">
+						<input type="reset" value="Delete" class="no-line btn btn-secondary btn-large btn-caps">
+			        </div>
+				  </form>
+		      </div>
+		    </article> 
+		  </div>
+	  </div>
 	</body>
 </html>

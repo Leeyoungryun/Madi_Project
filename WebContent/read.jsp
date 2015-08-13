@@ -3,6 +3,7 @@
 <html>
 	<head>
 		<title>상세 정보</title>
+		<link href = "<%=request.getContextPath()%>/css/write.css" rel="stylesheet">
 		<script language=javascript>
 		function sendUpdate(){
 				document.requestForm.command.value ="updateForm";
@@ -16,19 +17,33 @@
 		</script>
 	</head>
 	<body>
-	작성일  <%= resultContent.getWriteday() %><br>
-	추천노래 <%= resultContent.getMusicNum() %><br>
-	제 목 <%= resultContent.getTitle()  %><br>
-	내 용<%= resultContent.getContent()%><br><br>
-	
-	<!-- 수정시 필요한 데이터들을 hidden으로 숨겨놓고 폼 데이터로 보내준다. -->
-	<form name="requestForm" method=post action="memo.do">
-		<input type=hidden name=num value="<%=resultContent.getMemoNum()%>">
-		<input type=hidden name="command" value="">
-		<input type=button value="수정하기" onClick="sendUpdate()">
-		<input type=button value="삭제하기" onClick="sendDelete()">
-	</form>
-	<br>
-	<a href="memo.do">리스트로 돌아가기</a>&gt;</span></div>
+	  <div class = "container">
+		  <div class = "grid_9">
+		    <article class = "post post-blog">
+		     <br><br><br>
+		      <img src = "http://placehold.it/960x250/efefef"/>
+		      <div class = "details">
+					<div class="meta">
+					  <h2>Music <%= resultContent.getMusicNum() %></h2>
+			          <p>Written by <strong>${member.name}</strong></p>
+			        </div>
+					<strong><%= resultContent.getTitle()%></strong><br><br>
+					<p><%= resultContent.getContent()%></p>
+					<div class="intents">
+						<span class="icon icon-heart"></span>
+						<span class="count"><%= resultContent.getWriteday() %></span>
+					</div>
+					<form name="requestForm" method=post action="memo.do">
+						<input type=hidden name=num value="<%=resultContent.getMemoNum()%>">
+						<input type=hidden name="command" value="">
+						<div class="btn-group" data-grouptype="OR">
+							<input type=button value="Update" onClick="sendUpdate()" class="no-line btn btn-primary btn-large btn-caps">
+							<input type=button value="Delete" onClick="sendDelete()" class="no-line btn btn-secondary btn-large btn-caps">
+			        	</div>
+					</form>
+		      </div>
+		    </article> 
+		  </div>
+	  </div>		
 	</body>
 </html>

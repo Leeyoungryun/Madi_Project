@@ -13,7 +13,6 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry exported="true" kind="lib" path="KoreanAnalyzer/lib/koreananalyzer.4x-20130430.jar"/>
 	<classpathentry exported="true" kind="lib" path="KoreanAnalyzer/lib/weka.jar"/>
 	<classpathentry kind="lib" path="KoreanAnalyzer/lib/arirang-analyzer-4.6-140808.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
