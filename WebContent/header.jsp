@@ -3,8 +3,6 @@
 <html>
 	<head>
 		<title>로그인 전 header</title>
-	</head>
-	<body>
 		<a href="<%=request.getContextPath()%>/login/login.jsp">Login</a>
-	</body>
+	</head>
 </html>

@@ -50,6 +50,6 @@
                 <div class="TAPEhole" id="TAPEhole02"></div>
         	</div>
         </div>
-		<a style="text-decoration: none;" href="write.jsp"><p style="margin-top: 10px;">Madi</p></a>
+		<a style="text-decoration: none;" href="write.jsp"><p style="margin-top: 10px;"># Madi</p></a>
 	</body>
 </html>
