@@ -1,14 +1,15 @@
 package KoreanAnalyzer;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import org.apache.lucene.analysis.kr.morph.AnalysisOutput;
-import org.apache.lucene.analysis.kr.morph.CompoundEntry;
-import org.apache.lucene.analysis.kr.morph.CompoundNounAnalyzer;
-import org.apache.lucene.analysis.kr.morph.MorphAnalyzer;
-import org.apache.lucene.analysis.kr.morph.MorphException;
-import org.apache.lucene.analysis.kr.morph.WordSpaceAnalyzer;
+import org.apache.lucene.analysis.ko.morph.AnalysisOutput;
+import org.apache.lucene.analysis.ko.morph.CompoundEntry;
+import org.apache.lucene.analysis.ko.morph.CompoundNounAnalyzer;
+import org.apache.lucene.analysis.ko.morph.MorphAnalyzer;
+import org.apache.lucene.analysis.ko.morph.MorphException;
+import org.apache.lucene.analysis.ko.morph.WordSegmentAnalyzer;
 
 public class TextMorphAnalyzer {
     @SuppressWarnings("unchecked")
@@ -62,15 +63,15 @@ public class TextMorphAnalyzer {
     				listStr.add(item.getStem());
     			}
     			if(item.getPos() == 'V' && item.getScore() >= 90){
-    				if(!(item.getStem().equals("?ïò") || item.getStem().equals("?êò"))){
+    				if(!(item.getStem().equals("Ìïò") || item.getStem().equals("Îêò"))){
     					listStr.add(tempNoun);
     					tempNoun = null;
     				}
-    				listStr.add(((tempNoun !=null)?tempNoun:"") + item.getStem() + "?ã§");
+    				listStr.add(((tempNoun !=null)?tempNoun:"") + item.getStem() + "Îã§");
     			}
     			if(item.getPos() == 'N' && item.getVsfx() != null && item.getScore() >= 90){
-    				if(item.getVsfx().equals("?ïò") || item.getVsfx().equals("?êò")){
-        				listStr.add(item.getStem() + item.getVsfx() + "?ã§"); 		
+    				if(item.getVsfx().equals("Ìïò") || item.getVsfx().equals("Îêò")){
+        				listStr.add(item.getStem() + item.getVsfx() + "Îã§"); 		
     				}
     				else{
     					listStr.add(item.getStem());
@@ -104,26 +105,6 @@ public class TextMorphAnalyzer {
     	return outList;
     }
 
-    public String wordSpaceAnalyze(String source, boolean force) throws MorphException {
-        StringBuilder result = new StringBuilder();
-        WordSpaceAnalyzer wsAnal = new WordSpaceAnalyzer();
-        String s;
-        if(force)
-            s = source.replace(" ", "");
-        else
-            s = source;
-        @SuppressWarnings("unchecked")
-		List<AnalysisOutput> outList = wsAnal.analyze(s);
-        for(AnalysisOutput o: outList) {
-            result.append(o.getSource()).append(" ");
-        }
-
-        return result.toString();
-    }
-
-    public String wordSpaceAnalyze(String source) throws MorphException {
-        return wordSpaceAnalyze(source, false);
-    }
 
     public String compoundNounAnalyze(String source) throws MorphException {
         StringBuilder result = new StringBuilder();

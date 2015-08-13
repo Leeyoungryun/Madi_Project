@@ -6,7 +6,7 @@ package Phoneme;
 
 import java.io.*;
 
-import org.apache.lucene.analysis.kr.morph.MorphException;
+import org.apache.lucene.analysis.ko.morph.MorphException;
 
 
 public class PhonemeTextEngine implements Serializable {

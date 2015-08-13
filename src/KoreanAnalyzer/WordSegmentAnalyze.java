@@ -2,29 +2,16 @@ package KoreanAnalyzer;
 
 import java.util.List;
 
-import org.apache.lucene.analysis.ko.WordSegmentFilter;
 import org.apache.lucene.analysis.ko.morph.AnalysisOutput;
-import org.apache.lucene.analysis.ko.morph.MorphAnalyzer;
 import org.apache.lucene.analysis.ko.morph.MorphException;
 import org.apache.lucene.analysis.ko.morph.WordSegmentAnalyzer;
-import org.apache.lucene.analysis.kr.morph.WordSpaceAnalyzer;
 
 public class WordSegmentAnalyze {
 
-	
-	public static void main(String[] args) throws MorphException, org.apache.lucene.analysis.kr.morph.MorphException{
-	MorphAnalyzer Ana= new MorphAnalyzer();
-	
-		//TextMorphAnalyzer aaa= new TextMorphAnalyzer();
-		String ss=wordSegmentAnalyze("혼자있어도 난슬프지않아",false);
-		System.out.println(ss);
- 
-		
-	}
-	
-	
-	 public static String wordSegmentAnalyze(String source, boolean force) throws MorphException {
-	        StringBuilder result = new StringBuilder();
+	 public StringBuilder segmented = new StringBuilder();//띄어쓰기 된 문장을 저장하기 위한 변수
+
+	 public WordSegmentAnalyze(String source, boolean force) throws MorphException {
+	       
 	       
 	        WordSegmentAnalyzer sss= new WordSegmentAnalyzer();
 	        String s="";
@@ -37,17 +24,15 @@ public class WordSegmentAnalyze {
 	    
 	     
 	        for(List<AnalysisOutput> o: outList) {
-	        
-	        
 	        	for(AnalysisOutput a:o){
 	        		
-	            result.append(a.getSource()).append(" ");
-	        	System.out.println(a.getSource());
+	        		segmented.append(a.getSource()).append(" ");
+	        	//System.out.println(a.getSource());
 	        	}
 	        	
 	        }
 
-	        return result.toString();
+	        
 	    }
 	
 }

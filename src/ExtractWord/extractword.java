@@ -4,15 +4,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.lucene.analysis.kr.morph.MorphException;
-
+import org.apache.lucene.analysis.ko.morph.MorphException;
+import KoreanAnalyzer.TextMorphAnalyzer;
+import KoreanAnalyzer.WordSegmentAnalyze;
 import Phoneme.PhonemeExtractor;
 
 /**
- * 텍스트를 입력 받아 감성을 추출
+ * 텍스트를 입력 받아 키워드를 추출
  * 
  * @param string
- *            감성 분석을 원하는 텍스트
+ *            키워드 분석을 원하는 텍스트
  * @throws MorphException
  * 
  */
@@ -23,40 +24,116 @@ public class extractword {
 	
 	public static void main(String[] args) throws IOException, MorphException {
 		// TODO Auto-generated method stub
-		justExtract("우리가 사랑한 시간은 긴가");
+		String[] Words=extracting("사랑해");
+		for(int i=0; i<Words.length; i++)
+		{
+			System.out.println();
+			System.out.println(Words[i]);
+		}
 		
 	}
 	
 
-	public static void extracting(String input) throws MorphException {
+	public static String[] extracting(String input) throws MorphException {
 		TextMorphAnalyzer k_analyzer= new TextMorphAnalyzer();
 		
-		String spaced= k_analyzer.wordSpaceAnalyze(input);
-		String[] verbs= k_analyzer.extractVerb(spaced);
+		WordSegmentAnalyze ws_analyzer= new WordSegmentAnalyze(input, false);
+
+		String segmented= ws_analyzer.segmented.toString();
+		 // 띄어쓰기
 		
-			String[] guided = k_analyzer.guideWord(spaced); 
+		System.out.println(segmented);
+		String temp2 = k_analyzer.morphAnalyze(segmented).toString();
+		String[] verbs = k_analyzer.extractVerb(segmented);// 동사 추출
+		String temp = "";
+		String str = "";
+		String[] guide = k_analyzer.guideWord(segmented); // 색인 추출
+		String[] extractedWord= new String[2];
+		for(int i=0; i<guide.length; i++){ 
+		}
 		
-		for(int i=0; i<guided.length; i++){
-			System.out.println(guided[i]);
+		/**
+		 * 특징 1번째 명사
+		 */
+		String[] temp3 = temp2.split(" ");
+		String[] temp4 = new String[4000];
+		
+		int wordcount = 0;
+		for (String t : temp3) {
+			// System.out.println(t);
+			String[] word = t.split(",");
+			for (String w : word) {
+				boolean check = false;
+				for (int i = 0; i < w.length(); i++) {
+					if (w.charAt(i) == 'N') {
+						check = true;
+						break;
+					}
+				}
+				if (check)
+					temp4[wordcount] = w;
+				// System.out.println(w);
+				wordcount++;
+				// System.out.println(wordcount);
+			}
+		}
+
+
+		/**
+		 * 특징 2번째 동사
+		 */
+		
+		if (verbs.length == 0) { // 동사가 없을때
+			str = str + guide[guide.length - 1]; // 색인 마지막 인덱스에 있는 단어 추출
+			// System.out.println("===동사가 없을때===" + str);
+		} else { // 동사가 있을때
+			for (int i = 0; i < verbs.length; i++) {
+				if (verbs[i] != null) { // 동사값이 NULL이 아닐때
+					if (verbs[i].matches(".*다")) { // 동사가 "다"로 끝나면
+						 str = temp + verbs[i]; // temp에 동사를 합해서 str에 넣어준다
+						// System.out.println("===동사가 다 끝날때===" + str);
+						//str = verbs[i];
+						temp = ""; // temp 초기화
+					} else { // 동사값이 NULL 값일때
+						// temp = temp + verbs[i];
+
+					}
+
+				}
+
 			}
 
+		}
+		
+		/**
+		 * 특징 3번째 색인어
+		 */
+
+		String textResult = "";
+
 	
-		if(verbs.length==0){
+		if (input != null) {
+			if (guide.length > 0) {
+				textResult = guide[guide.length / 2];
+			}
 		}
-		else{
-			
+		
+		
+		if (str.length() == 0) {
+			if (guide.length != 0) {
+				str = guide[guide.length-1];
+			} else {
+				str = guide[0];
+			}
 		}
+		extractedWord[0]=textResult;
+		extractedWord[1]=str;
+		
+		return extractedWord;
 	
 	}
-	
-	public static void justExtract(String input) throws MorphException
-	{
-		String spaced= k_analyzer.wordSpaceAnalyze(input);
-		splitWithVerb(spaced);
 	
 
-	}
-	
 	
 	/**
 	 * 동사를 기준으로 문장을 구분
@@ -66,7 +143,7 @@ public class extractword {
 	 * @throws MorphException
 	 */
 	
-	public static void splitWithVerb(String input) throws MorphException
+	public static void splitWithVerb(String input) throws MorphException 
 	{
 		System.out.println(input);
 		String[] sentences=null;
@@ -99,6 +176,7 @@ public class extractword {
 		}
 	
 	}
+	
 	
 
 

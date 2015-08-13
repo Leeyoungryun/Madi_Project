@@ -4,7 +4,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 
-import org.apache.lucene.analysis.kr.morph.MorphException;
+import org.apache.lucene.analysis.ko.morph.MorphException;
 
 import Phoneme.PhonemeTextEngine;
 
@@ -25,7 +25,13 @@ public class Emotion_test {
 					.readObject();
 			ois.close();
 			
-			String emotion = textEngine.getEmotion(str);
+			String emotion = null;
+			try {
+				emotion = textEngine.getEmotion(str);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			System.out.println(emotion.toString());
 
 		} catch (IOException e) {

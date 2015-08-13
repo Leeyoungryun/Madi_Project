@@ -1,8 +1,6 @@
 package ExtractWord;
 
-import java.io.IOException;
-
-import org.apache.lucene.analysis.kr.morph.MorphException;
+import org.apache.lucene.analysis.ko.morph.MorphException;
 
 import ExtractWord.extractword;
 
@@ -11,10 +9,10 @@ public class writeTest {
 		test("t");
 	}
 
-	public static boolean test(String str){
+	public static boolean test(String str) {
 		extractword e = new extractword();
 		try {
-			e.justExtract(str);
+			extractword.extracting(str);
 		} catch (MorphException e1) {
 			e1.printStackTrace();
 		}
