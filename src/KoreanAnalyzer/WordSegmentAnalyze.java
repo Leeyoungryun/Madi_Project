@@ -13,14 +13,14 @@ public class WordSegmentAnalyze {
 	 public WordSegmentAnalyze(String source, boolean force) throws MorphException {
 	       
 	       
-	        WordSegmentAnalyzer sss= new WordSegmentAnalyzer();
+	        WordSegmentAnalyzer WSA= new WordSegmentAnalyzer();
 	        String s="";
 	        if(force)
 	            s = source.replace(" ", "");
 	        else
 	            s = source;
 	        @SuppressWarnings("unchecked")
-			List<List<AnalysisOutput>> outList = sss.analyze(s);
+			List<List<AnalysisOutput>> outList = WSA.analyze(s);
 	    
 	     
 	        for(List<AnalysisOutput> o: outList) {

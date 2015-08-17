@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.lucene.analysis.ko.morph.MorphException;
+
 import KoreanAnalyzer.TextMorphAnalyzer;
 import KoreanAnalyzer.WordSegmentAnalyze;
 import Phoneme.PhonemeExtractor;
@@ -32,6 +33,7 @@ public class extractword {
 		}
 		
 	}
+	
 	
 
 	public static String[] extracting(String input) throws MorphException {
@@ -129,6 +131,8 @@ public class extractword {
 		extractedWord[0]=textResult;
 		extractedWord[1]=str;
 		
+		System.out.println(extractedWord[0]);
+		System.out.println(extractedWord[1]);
 		return extractedWord;
 	
 	}

@@ -9,7 +9,6 @@ import org.apache.lucene.analysis.ko.morph.CompoundEntry;
 import org.apache.lucene.analysis.ko.morph.CompoundNounAnalyzer;
 import org.apache.lucene.analysis.ko.morph.MorphAnalyzer;
 import org.apache.lucene.analysis.ko.morph.MorphException;
-import org.apache.lucene.analysis.ko.morph.WordSegmentAnalyzer;
 
 public class TextMorphAnalyzer {
     @SuppressWarnings("unchecked")

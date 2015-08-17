@@ -15,11 +15,11 @@ public class Emotion_test {
 		// TODO Auto-generated method stub
 
 
-		String str = "너때문에 짜증난다" ;
+		String str = "바다";
 
 		try {
 			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(
-					"dataset/2014journal.dat"));
+					"data/gee.dat"));
 
 			PhonemeTextEngine textEngine = (PhonemeTextEngine) ois
 					.readObject();

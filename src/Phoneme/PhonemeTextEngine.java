@@ -8,6 +8,8 @@ import java.io.*;
 
 import org.apache.lucene.analysis.ko.morph.MorphException;
 
+import ExtractWord.extractword;
+
 
 public class PhonemeTextEngine implements Serializable {
 
@@ -54,31 +56,38 @@ public class PhonemeTextEngine implements Serializable {
 	 */
 	public String putData(String string) throws MorphException {
 		String emotion = "";
-		String word1 = null,word2 = null;//뽑아낼 두 단어
+	
 		
-		//
-		//여기에 단어추출알고리즘이 들어가야함!!!
-		//
-		
-		int result = classifier.classifyEmotion(word1 + "\t" + word2);
+		extractword extract=new extractword();
+		String[] extracted=extract.extracting(string);
+		// 단어추출알고리즘
+		int result = classifier.classifyEmotion(extracted[0] + "\t" + extracted[1]);
+		System.out.println(result);
 		
 
 		switch(result)
 		{
-			case 1 :
-			emotion="angry";
-			case 2: 
-				emotion ="";
+			case 0 :
+			emotion="excited";
+			break;
+			case 1: 
+				emotion ="joyful";
+				break;
+			case 2:
+				emotion ="natural";
+				break;
 			case 3:
-				emotion ="";
+				emotion ="nervous";
+				break;
 			case 4:
-				emotion ="";
+				emotion ="sad";
+				break;
 			case 5:
-				emotion ="";
+				emotion ="angry";
+				break;
 			case 6:
-				emotion ="";
-			case 7:
-				emotion ="";
+				emotion ="ttt";
+				break;
 		}
 		return emotion;
 	}

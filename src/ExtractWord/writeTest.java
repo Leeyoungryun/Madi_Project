@@ -8,7 +8,6 @@ public class writeTest {
 	public static void main(String[] args){
 		test("t");
 	}
-
 	public static boolean test(String str) {
 		extractword e = new extractword();
 		try {
@@ -16,7 +15,12 @@ public class writeTest {
 		} catch (MorphException e1) {
 			e1.printStackTrace();
 		}
+
+		//String sss="committest";
 		
 		return true;
+		
+		
+		
 	}
 }
