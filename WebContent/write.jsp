@@ -7,6 +7,12 @@
 	  	<link href = "<%=request.getContextPath()%>/css/write.css" rel="stylesheet">
 	    <meta charset="UTF-8">
 	    <title>write</title>
+	    <script language = 'JavaScript'>
+	    function bgChange(img){
+	   		document.getElementById("back").style.background="url('http://static.naver.net/header/h1/bi_naver.gif')";
+	   		document.getElementById("bg").value=select;
+	    }
+	    </script>
   </head>
   <body>
   	<c:choose>
@@ -20,9 +26,12 @@
   <div class = "container">
 	  <div class = "grid_9">
 	    <article class = "post post-blog">
-	     <br><br><br>
+	      <p class = "title">Write</p>
 	      <img src = "http://placehold.it/960x250/efefef"/>
-	      <div class = "details">    
+	      <div class = "details">
+	      <button onclick = "bgChange('1');">1</button>
+	      <button onclick = "bgChange('2');">2</button>
+	      <button onclick = "bgChange('3');">3</button>
 		      <form name = "writeForm" method = "post" action = "memo.do">
 				<input type = "hidden" name = "command" value = "write">
 				<input type ="hidden" name = "member" size = "30" value = "${member.memberNum}">	
@@ -31,16 +40,18 @@
 		        </div>
 				<input type = "text" name = "title" cols = "30" rows = "1" class = "no-line" placeholder = "제목을 입력하세요"><br><br>
 				<p>Content</p><textarea name = "content" cols = "30" rows="10" class = "no-line"></textarea><br><br><br>
-		        <input type = "text" name = "hashtag1" class = "btn no-line" value = "# tag1">&nbsp;&nbsp;
-		        <input type = "text" name = "hashtag2" class = "btn no-line" value = "# tag2">&nbsp;&nbsp;
-		        <input type = "text" name = "hashtag3" class = "btn no-line" value = "# tag3">
+		        <input type = "text" class = "hash no-line" value = "#" readonly><input type = "text" name = "hashtag1" class = "btn no-line width" value = "tag1">&nbsp;&nbsp;
+		        <input type = "text" class = "hash no-line" value = "#" readonly><input type = "text" name = "hashtag2" class = "btn no-line width" value = "tag2">&nbsp;&nbsp;
+		        <input type = "text" class = "hash no-line" value = "#" readonly><input type = "text" name = "hashtag3" class = "btn no-line width" value = "tag3">
 		        <div class="intents">
 		        	<input type = submit class="btn btn-quaternary btn-caps no-line" value="Save"> 
-		        </div>	
+		        </div>
+		        <input type = "text" id = "bg" name = "bg" value = "write">
 			  </form>
 	      </div>
 	    </article> 
 	  </div>
   </div>
+  <div id = "back" class="fullscreen-bg"></div>
   </body>
 </html>
