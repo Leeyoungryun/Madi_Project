@@ -1,6 +1,14 @@
 package ExtractWord;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,12 +33,17 @@ public class extractword {
 	
 	public static void main(String[] args) throws IOException, MorphException {
 		// TODO Auto-generated method stub
-		String[] Words=extracting("사랑해");
+		
+		
+		extractFromTxt("data/test.txt");
+		
+	/*	String[] Words=extracting("사랑해");
 		for(int i=0; i<Words.length; i++)
 		{
 			System.out.println();
 			System.out.println(Words[i]);
 		}
+	*/	
 		
 	}
 	
@@ -182,6 +195,40 @@ public class extractword {
 	}
 	
 	
+	
+	public static void extractFromTxt(String dataPath) throws MorphException, IOException 
+	{
+	
+		File fi = new File(dataPath);	
+		String path = fi.getPath().substring(0, fi.getPath().length() - fi.getName().length());
+		String fileName = path + "ex_"+ fi.getName().split("[.]")[0] + ".txt";
+		File fo = new File(fileName);
+		
+		BufferedReader fin = new BufferedReader(new InputStreamReader(new FileInputStream(fi)));
+		PrintWriter fout = new PrintWriter(new OutputStreamWriter(new FileOutputStream(fo)));
+		
+		String buf = null;
+	
+		while((buf = fin.readLine()) != null){
+			buf = buf.replace("\"", "");
+			buf = buf.replace("'", "");
+			
+			
+			String[] data = buf.split("\t");//문장을 탭으로 쪼개서 배열에 저장 
+			String emotion = data[1];//맨끝에있는 감정을   emotion 에 저장
+			
+			//두단어뽑기
+			String[] extracted =extracting(data[0]);
+		
+			fout.println(extracted[0]+ "\t" + extracted[1] + "\t"  + emotion);
+			System.out.println(extracted[0]+ "\t" + extracted[1] + "\t"  + emotion);
+		}
+		
+		fin.close();
+		fout.flush();
+		fout.close();
+		
+	}
 
 
 }
