@@ -50,16 +50,19 @@ import model.domain.MusicBean;
 			String hashTag1 = request.getParameter("hashtag1");
 			String hashTag2 = request.getParameter("hashtag2");
 			String hashTag3 = request.getParameter("hashtag3");
+			String back = request.getParameter("back");
 			
 			if(title == null || title.trim().length() == 0 ){
 				response.sendRedirect("write.jsp");
 				return;
 			}
 			
-			if(writeTest.test(content)!=null){
+			String[] hash = {hashTag1, hashTag2, hashTag3};
+			
+			if(writeTest.test(hash)!=null){
 				int memberNum = Integer.parseInt(member);
-				MemoBean gContent = new MemoBean(memberNum, title, content, hashTag1, hashTag2, hashTag3);
-				MusicBean music = MusicDAO.selectMusic(writeTest.test(content));
+				MemoBean gContent = new MemoBean(memberNum, title, content, hashTag1, hashTag2, hashTag3, back);
+				MusicBean music = MusicDAO.selectMusic(writeTest.test(hash));
 				if(music == null){
 					response.sendRedirect("error.jsp");
 					return;						
@@ -162,12 +165,13 @@ import model.domain.MusicBean;
 			String hashTag1 = request.getParameter("hashtag1");
 			String hashTag2 = request.getParameter("hashtag2");
 			String hashTag3 = request.getParameter("hashtag3");
+			String back = request.getParameter("back");
 			String music = request.getParameter("musicNum");
 			
 			int memberNum = Integer.parseInt(member);
 			int musicNum = Integer.parseInt(music);
 			
-			MemoBean gContent = new MemoBean(memberNum, title, content, hashTag1, hashTag2, hashTag3, musicNum);
+			MemoBean gContent = new MemoBean(memberNum, title, content, hashTag1, hashTag2, hashTag3, back, musicNum);
 			boolean result = MemoDAO.writeContent(gContent);			
 			if(result){
 				response.sendRedirect("memo.do");

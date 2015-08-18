@@ -10,6 +10,7 @@ public class MemoBean implements Serializable{
 	private String hashTag1;
 	private String hashTag2;
 	private String hashTag3;
+	private String back;
 	private String writeday;			
 	private int musicNum;
 
@@ -20,15 +21,16 @@ public class MemoBean implements Serializable{
 	}
 	
 	public MemoBean(int memberNum, String title, String content,
-			String hashTag1, String hashTag2, String hashTag3) {
+			String hashTag1, String hashTag2, String hashTag3, String back) {
 		this.memberNum = memberNum;
 		this.title = title;
 		this.content = content;
 		this.hashTag1 = hashTag1;
 		this.hashTag2 = hashTag2;
 		this.hashTag3 = hashTag3;
+		this.back = back;
 	}
-		
+	
 	public MemoBean(int memoNum, int memberNum, String title, String content) {
 		super();
 		this.memoNum = memoNum;
@@ -58,16 +60,17 @@ public class MemoBean implements Serializable{
 	}
 
 	public MemoBean(int memberNum, String title, String content,
-			String hashTag1, String hashTag2, String hashTag3, int musicNum) {
+			String hashTag1, String hashTag2, String hashTag3, String back, int musicNum) {
 		this.memberNum = memberNum;
 		this.title = title;
 		this.content = content;
 		this.hashTag1 = hashTag1;
 		this.hashTag2 = hashTag2;
 		this.hashTag3 = hashTag3;
+		this.back = back;
 		this.musicNum = musicNum;
 	}
-	
+
 	public MemoBean(int memoNum, int memberNum, String title, String content,
 			String hashTag1, String hashTag2, String hashTag3, String writeday,
 			int musicNum) {
@@ -78,6 +81,22 @@ public class MemoBean implements Serializable{
 		this.hashTag1 = hashTag1;
 		this.hashTag2 = hashTag2;
 		this.hashTag3 = hashTag3;
+		this.writeday = writeday;
+		this.musicNum = musicNum;
+	}
+	
+	public MemoBean(int memoNum, int memberNum, String title, String content,
+			String hashTag1, String hashTag2, String hashTag3, String back,
+			String writeday, int musicNum) {
+		super();
+		this.memoNum = memoNum;
+		this.memberNum = memberNum;
+		this.title = title;
+		this.content = content;
+		this.hashTag1 = hashTag1;
+		this.hashTag2 = hashTag2;
+		this.hashTag3 = hashTag3;
+		this.back = back;
 		this.writeday = writeday;
 		this.musicNum = musicNum;
 	}
@@ -138,6 +157,14 @@ public class MemoBean implements Serializable{
 		this.hashTag3 = hashTag3;
 	}
 
+	public String getBack() {
+		return back;
+	}
+
+	public void setBack(String back) {
+		this.back = back;
+	}
+
 	public String getWriteday() {
 		return writeday;
 	}
@@ -171,6 +198,8 @@ public class MemoBean implements Serializable{
 		builder.append(hashTag2);
 		builder.append(", hashTag3=");
 		builder.append(hashTag3);
+		builder.append(", back=");
+		builder.append(back);
 		builder.append(", writeday=");
 		builder.append(writeday);
 		builder.append(", musicNum=");

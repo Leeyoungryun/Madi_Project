@@ -26,6 +26,7 @@
 			<input type="hidden" name = "hashTag1" value= "<%= resultContent.getHashTag1() %>">
 			<input type="hidden" name = "hashTag2" value= "<%= resultContent.getHashTag2() %>">
 			<input type="hidden" name = "hashTag3" value= "<%= resultContent.getHashTag3() %>">
+			<input type="hidden" name = "back" value= "<%= resultContent.getBack() %>">
 			<input type="hidden" name = "musicNum" value= "<%= resultMusic.getMusicNum() %>">
 			<input type="submit" value ="save">
 		</form>

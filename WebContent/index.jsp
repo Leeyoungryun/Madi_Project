@@ -40,7 +40,6 @@
                         <span>50</span>
                         <span>0</span>
                     </div>
-
                 </div>
             </div>
 

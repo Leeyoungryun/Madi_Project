@@ -9,8 +9,8 @@
 	    <title>write</title>
 	    <script language = 'JavaScript'>
 	    function bgChange(select){
-	   		document.getElementById("back").style.background="url('http://static.naver.net/header/h1/bi_naver.gif')";
-	   		document.getElementById("bg").value=select;
+	   		document.getElementById("bg").style.background="url(http://photo.toast.com/aaaadc/abc/" + select + ".jpg)";
+	   		document.getElementById("back").value = select;
 	    }
 	    </script>
   </head>
@@ -29,12 +29,17 @@
 	      <p class = "title">Write</p>
 	      <img src = "http://placehold.it/960x250/efefef"/>
 	      <div class = "details">
-	      <button onclick = "bgChange('1');">1</button>
-	      <button onclick = "bgChange('2');">2</button>
-	      <button onclick = "bgChange('3');">3</button>
+	      <button onclick = "bgChange('happy');">1</button>
+	      <button onclick = "bgChange('angry');">2</button>
+	      <button onclick = "bgChange('sad');">3</button>
+	      <button onclick = "bgChange('joy');">4</button>
+	      <button onclick = "bgChange('love');">5</button>
+	      <button onclick = "bgChange('hate');">6</button>
+	      <button onclick = "bgChange('expect');">7</button>
 		      <form name = "writeForm" method = "post" action = "memo.do">
 				<input type = "hidden" name = "command" value = "write">
-				<input type ="hidden" name = "member" size = "30" value = "${member.memberNum}">	
+				<input type ="hidden" name = "member" size = "30" value = "${member.memberNum}">
+				<input type = "hidden" id = "back" name = "back">
 				<div class="meta">
 		          <p>Written by <strong>${member.name}</strong></p>
 		        </div>
@@ -46,12 +51,11 @@
 		        <div class="intents">
 		        	<input type = submit class="btn btn-quaternary btn-caps no-line" value="Save"> 
 		        </div>
-		        <input type = "text" id = "bg" name = "bg">
 			  </form>
 	      </div>
 	    </article> 
 	  </div>
   </div>
-  <div id = "back" class="fullscreen-bg"></div>
+  <div id = "bg" class="fullscreen-bg"></div>
   </body>
 </html>

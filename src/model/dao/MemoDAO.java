@@ -35,8 +35,8 @@ public class MemoDAO {
 		Connection con = null;	
 		PreparedStatement pstmt = null;
 		boolean result = false;
-		
-		String sql = "INSERT INTO MEMO VALUES(SEQ_MEMO_NUM.NEXTVAL,?,?,?,?,?,?,SYSDATE,?)";
+
+		String sql = "INSERT INTO MEMO VALUES(SEQ_MEMO_NUM.NEXTVAL,?,?,?,?,?,?,?,SYSDATE,?)";
 
 		try {
 			con = source.getConnection();
@@ -48,7 +48,8 @@ public class MemoDAO {
 	        pstmt.setString(4, vo.getHashTag1());
 	        pstmt.setString(5, vo.getHashTag2());
 	        pstmt.setString(6, vo.getHashTag3());
-	        pstmt.setInt(7, vo.getMusicNum());
+	        pstmt.setString(7, vo.getBack());
+	        pstmt.setInt(8, vo.getMusicNum());
 	        
 			int count = pstmt.executeUpdate();
 			if(count != 0){
@@ -70,7 +71,7 @@ public class MemoDAO {
 		MemoBean vo  = null;
 		//String sql1="UPDATE memo set readnum=readnum+1 WHERE num=?";	
 		
-		String sql2="SELECT MEMBER_NUM, TITLE, CONTENT, HASHTAG1, HASHTAG2, HASHTAG3, TO_CHAR(WRITEDAY,'yyyy/mm/dd hh24:mi:ss'), MUSIC_NUM FROM MEMO WHERE MEMO_NUM = ?";
+		String sql2="SELECT MEMBER_NUM, TITLE, CONTENT, HASHTAG1, HASHTAG2, HASHTAG3, BACK, TO_CHAR(WRITEDAY,'yyyy/mm/dd hh24:mi:ss'), MUSIC_NUM FROM MEMO WHERE MEMO_NUM = ?";
 
 		try {
 			con = source.getConnection();
@@ -90,7 +91,7 @@ public class MemoDAO {
 		
 			if(rset.next()){
 				vo = 	new MemoBean(num, rset.getInt(1),
-						rset.getString(2), rset.getString(3), rset.getString(4), rset.getString(5), rset.getString(6), rset.getString(7),rset.getInt(8));
+						rset.getString(2), rset.getString(3), rset.getString(4), rset.getString(5), rset.getString(6), rset.getString(7), rset.getString(8), rset.getInt(9));
 			}
 
 			

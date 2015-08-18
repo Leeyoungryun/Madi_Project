@@ -10,8 +10,8 @@ import ExtractWord.extractword;
 import Phoneme.PhonemeTextEngine;
 
 public class writeTest {
-	public static String test(String str) {
-		String str1 = str;
+	public static String test(String[] str) {
+		String str1[] = str;
 		String emotion = null;
 		
 		try {
@@ -23,7 +23,7 @@ public class writeTest {
 			ois.close();
 						
 			try {
-				emotion = textEngine.getEmotion(str1);
+				emotion = textEngine.getEmotion(str1[0]);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

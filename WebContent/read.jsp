@@ -6,6 +6,10 @@
 		<title>상세 정보</title>
 		<link href = "<%=request.getContextPath()%>/css/write.css" rel="stylesheet">
 		<script language=javascript>
+		window.onload = function(){
+			document.getElementById("bg").style.background = "url(http://photo.toast.com/aaaadc/abc/" + '<%=resultContent.getBack()%>' + ".jpg)";
+		}; 
+
 		function sendUpdate(){
 				document.requestForm.command.value ="updateForm";
 				document.requestForm.submit();
@@ -45,6 +49,7 @@
 		      </div>
 		    </article> 
 		  </div>
-	  </div>		
+	  </div>
+	  <div id = "bg" class="fullscreen-bg"></div>	
 	</body>
 </html>
