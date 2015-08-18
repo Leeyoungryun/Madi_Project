@@ -8,7 +8,7 @@
 	    <meta charset="UTF-8">
 	    <title>write</title>
 	    <script language = 'JavaScript'>
-	    function bgChange(img){
+	    function bgChange(select){
 	   		document.getElementById("back").style.background="url('http://static.naver.net/header/h1/bi_naver.gif')";
 	   		document.getElementById("bg").value=select;
 	    }
@@ -46,7 +46,7 @@
 		        <div class="intents">
 		        	<input type = submit class="btn btn-quaternary btn-caps no-line" value="Save"> 
 		        </div>
-		        <input type = "text" id = "bg" name = "bg" value = "write">
+		        <input type = "text" id = "bg" name = "bg">
 			  </form>
 	      </div>
 	    </article> 

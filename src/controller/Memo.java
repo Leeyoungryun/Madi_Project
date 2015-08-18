@@ -8,10 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import ExtractWord.extractword;
 import ExtractWord.writeTest;
 import model.dao.MemoDAO;
+import model.dao.MusicDAO;
 import model.domain.MemoBean;
+import model.domain.MusicBean;
 
  
  public class Memo extends javax.servlet.http.HttpServlet {
@@ -55,14 +56,23 @@ import model.domain.MemoBean;
 				return;
 			}
 			
-			if(writeTest.test(content)){	
+			if(writeTest.test(content)!=null){	
 				int memberNum = Integer.parseInt(member);	
 				MemoBean gContent = new MemoBean(memberNum, title, content, hashTag1, hashTag2, hashTag3);
 				boolean result = MemoDAO.writeContent(gContent);
 			
 				if(result){
-					response.sendRedirect("recommend.jsp"); 
-					return;
+					MusicBean music = MusicDAO.selectMusic(writeTest.test(content));
+					if(music == null){
+						response.sendRedirect("error.jsp");
+						return;						
+					}else{
+						request.setAttribute("resultMusic", music);
+						
+						RequestDispatcher rd=request.getRequestDispatcher("/recommend.jsp");
+						rd.forward(request, response);
+						return;
+					}
 				}else{
 					response.sendRedirect("error.jsp");
 					return;					
@@ -149,8 +159,6 @@ import model.domain.MemoBean;
 				response.sendRedirect("error.jsp");
 				return;				
 			}
-		}
-		
-		
+		}	
 	}
 }

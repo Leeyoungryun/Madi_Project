@@ -8,19 +8,16 @@ public class writeTest {
 	public static void main(String[] args){
 		test("t");
 	}
-	public static boolean test(String str) {
+	public static String test(String str) {
+		String emotion = null;
 		extractword e = new extractword();
 		try {
 			extractword.extracting(str);
+			emotion = "happy";
 		} catch (MorphException e1) {
 			e1.printStackTrace();
 		}
-
-		//String sss="committest";
 		
-		return true;
-		
-		
-		
+		return emotion;
 	}
 }
