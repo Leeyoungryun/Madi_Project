@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <jsp:useBean id="resultContent" class="model.domain.MemoBean" scope="request" />
+<jsp:useBean id="resultMusic" class="model.domain.MusicBean" scope="request" />
 <html>
 	<head>
 		<title>상세 정보</title>
@@ -24,7 +25,7 @@
 		      <img src = "http://placehold.it/960x250/efefef"/>
 		      <div class = "details">
 					<div class="meta">
-					  <h2>Music <%= resultContent.getMusicNum() %></h2>
+					  <h2>Music <%= resultMusic.getTitle() %></h2>
 			          <p>Written by <strong>${member.name}</strong></p>
 			        </div>
 					<strong><%= resultContent.getTitle()%></strong><br><br>

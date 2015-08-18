@@ -57,6 +57,17 @@ public class MemoBean implements Serializable{
 		this.hashTag3 = hashTag3;
 	}
 
+	public MemoBean(int memberNum, String title, String content,
+			String hashTag1, String hashTag2, String hashTag3, int musicNum) {
+		this.memberNum = memberNum;
+		this.title = title;
+		this.content = content;
+		this.hashTag1 = hashTag1;
+		this.hashTag2 = hashTag2;
+		this.hashTag3 = hashTag3;
+		this.musicNum = musicNum;
+	}
+	
 	public MemoBean(int memoNum, int memberNum, String title, String content,
 			String hashTag1, String hashTag2, String hashTag3, String writeday,
 			int musicNum) {

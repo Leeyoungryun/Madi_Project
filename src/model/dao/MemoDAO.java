@@ -39,7 +39,7 @@ public class MemoDAO {
 		PreparedStatement pstmt = null;
 		boolean result = false;
 		
-		String sql = "INSERT INTO MEMO VALUES(SEQ_MEMO_NUM.NEXTVAL,?,?,?,?,?,?,SYSDATE,1)";
+		String sql = "INSERT INTO MEMO VALUES(SEQ_MEMO_NUM.NEXTVAL,?,?,?,?,?,?,SYSDATE,?)";
 		//memo DB에 write form에서 입력한 값들 삽입하는 쿼리문
 
 		try {
@@ -53,6 +53,7 @@ public class MemoDAO {
 	        pstmt.setString(4, vo.getHashTag1());
 	        pstmt.setString(5, vo.getHashTag2());
 	        pstmt.setString(6, vo.getHashTag3());
+	        pstmt.setInt(7, vo.getMusicNum());
 	        //다른것도 마찬가지
 	        
 			int count = pstmt.executeUpdate();//쿼리문 실행되서 memo table에 값 추가	
@@ -151,6 +152,35 @@ public class MemoDAO {
 			pstmt.setString(1,vo.getTitle());
 		    pstmt.setString(2, vo.getContent());
 		    pstmt.setInt(3, vo.getMemoNum());
+			pstmt.executeUpdate();
+
+			int count = pstmt.executeUpdate();
+			
+			if(count != 0){
+				result = true;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			close(pstmt, con);
+		}
+		return result;
+		
+	}
+	
+	public  static boolean updateMusic(int musicNum){
+		Connection con = null;	
+		PreparedStatement pstmt = null;
+		boolean result = false;
+		
+		String sql="UPDATE MEMO SET MUSIC_NUM = ? WHERE LAST_VALUE(MEMO_NUM)";
+		
+		try {
+			con = source.getConnection();
+			pstmt = con.prepareStatement(sql);
+
+			pstmt.setInt(1, musicNum);
 			pstmt.executeUpdate();
 
 			int count = pstmt.executeUpdate();
