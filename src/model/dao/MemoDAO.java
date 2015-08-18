@@ -32,28 +32,32 @@ public class MemoDAO {
 	}
 		
 	
-	// �Խù� ���
-	public static boolean writeContent(MemoBean vo){
+	//memo DB에 추가
+	public static boolean writeContent(MemoBean vo){//Memo.java에서 호출할 때, 매개변수로 MemoBean객체 보내줬음
+		//db랑 연결하는 부분이라고 생각해
 		Connection con = null;	
 		PreparedStatement pstmt = null;
 		boolean result = false;
 		
 		String sql = "INSERT INTO MEMO VALUES(SEQ_MEMO_NUM.NEXTVAL,?,?,?,?,?,?,SYSDATE,1)";
+		//memo DB에 write form에서 입력한 값들 삽입하는 쿼리문
 
 		try {
 			con = source.getConnection();
 			pstmt = con.prepareStatement(sql);
 
-	        pstmt.setInt(1,vo.getMemberNum());
+	        pstmt.setInt(1,vo.getMemberNum());//1번째 물음표에 MemoBean객체에있는 MemberNum가져온다. MemberNum이 10번 저장되어있으면
+	        //INSERT INTO MEMO VALUES(SEQ_MEMO_NUM.NEXTVAL,10,?,?,?,?,?,SYSDATE,1); 이렇게 된다고 생각해.
 	        pstmt.setString(2,vo.getTitle());
 	        pstmt.setString(3, vo.getContent());
 	        pstmt.setString(4, vo.getHashTag1());
 	        pstmt.setString(5, vo.getHashTag2());
 	        pstmt.setString(6, vo.getHashTag3());
+	        //다른것도 마찬가지
 	        
-			int count = pstmt.executeUpdate();			
-			if(count != 0){
-				result = true;
+			int count = pstmt.executeUpdate();//쿼리문 실행되서 memo table에 값 추가	
+			if(count != 0){//쿼리문 실행할 때 오류안나면
+				result = true;//true값 반환 -> 다시 Memo.java돌아가
 			}
 			
 		} catch (SQLException e) {
