@@ -40,7 +40,7 @@
 					</div><br><br><br>
 					<i class="fa fa-tags icolor"></i> <input type = "text" class = "hash no-line" value = "#" readonly><input type = "text" class = "btn no-line width" value = "<%=resultContent.getHashTag1()%>" readonly>&nbsp;&nbsp;
 		        	<input type = "text" class = "hash no-line" value = "#" readonly><input type = "text" class = "btn no-line width" value = "<%=resultContent.getHashTag2()%>" readonly>&nbsp;&nbsp;
-		        	<input type = "text" class = "hash no-line" value = "#" readonly><input type = "text" class = "btn no-line width" value = "<%=resultContent.getHashTag3()%>" readonly>
+		        	<input type = "text" class = "hash no-line" value = "#" readonly><input type = "text" class = "btn no-line width" value = "<%=resultContent.getHashTag3()%>" readonly><br><br>
 					<form name="requestForm" method=post action="memo.do">
 						<input type=hidden name=num value="<%=resultContent.getMemoNum()%>">
 						<input type=hidden name="command" value="">
