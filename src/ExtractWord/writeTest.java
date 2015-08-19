@@ -10,25 +10,28 @@ import ExtractWord.extractword;
 import Phoneme.PhonemeTextEngine;
 
 public class writeTest {
-	public static String test(String[] str) {
-		String str1[] = str;
-		String emotion = null;
+	public static String[] test(String[] str) {
 		
+		//String[] string = { "바다","사랑","식당"};
+		String[] emotion = null;
+
 		try {
-			String path = writeTest.class.getResource("").getPath();
 			ObjectInputStream ois = new ObjectInputStream(new FileInputStream("C:/project/Madi_Project/data/gee.dat"));
 
 			PhonemeTextEngine textEngine = (PhonemeTextEngine) ois
 					.readObject();
 			ois.close();
-						
-			try {
-				emotion = textEngine.getEmotion(str1[0]);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			
+			emotion = new String[str.length];
+			for(int i=0; i<emotion.length; i++){
+				try {
+					emotion[i] = textEngine.getEmotion(str[i]);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				System.out.println(emotion[i]);
 			}
-			System.out.println(emotion.toString());
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -38,6 +41,6 @@ public class writeTest {
 			e.printStackTrace();
 		}
 		
-		return "happy";
+		return emotion;
 	}
 }

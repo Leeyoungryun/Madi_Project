@@ -62,7 +62,8 @@ import model.domain.MusicBean;
 			if(writeTest.test(hash)!=null){
 				int memberNum = Integer.parseInt(member);
 				MemoBean gContent = new MemoBean(memberNum, title, content, hashTag1, hashTag2, hashTag3, back);
-				MusicBean music = MusicDAO.selectMusic(writeTest.test(hash));
+				String[] result = writeTest.test(hash);
+				MusicBean music = MusicDAO.selectMusic(result[0]);
 				if(music == null){
 					response.sendRedirect("error.jsp");
 					return;						
