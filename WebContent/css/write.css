@@ -4,6 +4,7 @@
 @import url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/6035/flexslider.css);
 @import url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/6035/icomoon-uikit-feb.css);
 @import url(http://fonts.googleapis.com/css?family=Pacifico);
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
 
 * {
   box-sizing: border-box;
@@ -121,7 +122,7 @@ body {
   background: #fc5938;
 }
 .btn.btn-quaternary {
-  background: #48cfad;
+  background: rgba(31, 167, 249, 0.9);
   color: #fff;
 }
 .btn.btn-quaternary:hover, .btn.btn-quaternary.active {
@@ -587,7 +588,7 @@ footer {
   font-family: 'Pacifico', cursive;
   color:#ffffff;
   font-weight:400;
-  font-size:80px;
+  font-size:60px;
   margin-top: 0px;
   margin-bottom: 0px;
   text-align:center;
@@ -616,4 +617,13 @@ footer {
   top:0; right:0; bottom:0; left:0;
   background: url(http://36.media.tumblr.com/3cae448eafe6cdd27c210b4da274cfe7/tumblr_ns9p18pY5a1qzwmsso1_1280.jpg) center;
   background-size: cover;
+}
+
+.size{
+  width: 700px;
+  margin:0 auto;
+}
+
+.icolor{
+  color: #A0A0A0;
 }

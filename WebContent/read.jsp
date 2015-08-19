@@ -22,11 +22,10 @@
 		</script>
 	</head>
 	<body>
-	  <div class = "container">
-		  <div class = "grid_9">
+	  <div class = "size">
 		    <article class = "post post-blog">
 		     <br><br><br>
-		      <img src = "http://placehold.it/960x250/efefef"/>
+		      <img src = "http://photo.toast.com/aaaadc/abc/head.png"/>
 		      <div class = "details">
 					<div class="meta">
 					  <h2>Music <%= resultMusic.getTitle() %></h2>
@@ -48,7 +47,6 @@
 					</form>
 		      </div>
 		    </article> 
-		  </div>
 	  </div>
 	  <div id = "bg" class="fullscreen-bg"></div>	
 	</body>

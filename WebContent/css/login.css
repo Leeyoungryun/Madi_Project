@@ -78,7 +78,7 @@ input {
   background-color: #434A52;
 }
 .form--login input[type="submit"] {
-  background-color: rgba(92,168,214,0.9);
+  background-color: rgba(31, 167, 249, 0.9);
   color: #eee;
   font-weight: bold;
   text-transform: uppercase;

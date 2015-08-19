@@ -18,11 +18,10 @@
 		</script>
 	</head>
 	<body>
-		<div class = "container">
-		  <div class = "grid_9">
+		<div class = "size">
 		    <article class = "post post-blog">
 		     <br><br><br>
-		      <img src = "http://placehold.it/960x250/efefef"/>
+		      <img src = "http://photo.toast.com/aaaadc/abc/head.png"/>
 		      <div class = "details">    
 			      <form name=updateForm method=post action="memo.do" onSubmit='return checkValid()'>
 			      	<input type="hidden" value="update" name="command">
@@ -48,7 +47,6 @@
 				  </form>
 		      </div>
 		    </article> 
-		  </div>
 	  </div>
 	</body>
 </html>
