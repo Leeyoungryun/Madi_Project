@@ -68,26 +68,30 @@ public class PhonemeTextEngine implements Serializable {
 		switch(result)
 		{
 			case 0 :
-			emotion="excited";
+			emotion="happy";
 			break;
 			case 1: 
-				emotion ="joyful";
-				break;
-			case 2:
-				emotion ="natural";
-				break;
-			case 3:
-				emotion ="nervous";
-				break;
-			case 4:
-				emotion ="sad";
-				break;
-			case 5:
 				emotion ="angry";
 				break;
-			case 6:
-				emotion ="ttt";
+			case 2:
+				emotion ="sad";
 				break;
+			case 3:
+				emotion ="joy";
+				break;
+			case 4:
+				emotion ="love";
+				break;
+			case 5:
+				emotion ="hate";
+				break;
+			case 6:
+				emotion ="expect";
+				break;
+			case 7:
+				emotion ="natural";
+				break;
+				
 		}
 		return emotion;
 	}

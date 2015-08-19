@@ -15,7 +15,7 @@ public class Emotion_test {
 		// TODO Auto-generated method stub
 
 
-		String str = "바다";
+		String[] str ={ "바다","사랑","식당"};
 
 		try {
 			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(
@@ -25,14 +25,16 @@ public class Emotion_test {
 					.readObject();
 			ois.close();
 			
-			String emotion = null;
-			try {
-				emotion = textEngine.getEmotion(str);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			String[] emotion = new String[str.length];
+			for(int i=0; i<emotion.length; i++){
+				try {
+					emotion[i] = textEngine.getEmotion(str[i]);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				System.out.println(emotion[i]);
 			}
-			System.out.println(emotion.toString());
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

@@ -63,7 +63,7 @@ public class PhonemeKernelClassifier implements Serializable{
 		fout.println("@attribute 0 string");
 		fout.println("@attribute 1 string");
 		// fout.println("@attribute 2 string");
-		fout.println("@attribute 2 {excited,joyful,natural,nervous,sad,angry}");
+		fout.println("@attribute 2 {happy,angry,sad,joy,love,hate,expect,natural}");
 		fout.println("@data");
 		
 		while((buf = fin.readLine()) != null){
