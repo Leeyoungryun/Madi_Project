@@ -7,7 +7,7 @@
 		<link href = "<%=request.getContextPath()%>/css/write.css" rel="stylesheet">
 		<script language=javascript>
 		window.onload = function(){
-			document.getElementById("bg").style.background = "url(http://photo.toast.com/aaaadc/abc/" + '<%=resultContent.getBack()%>' + ".jpg)";
+			document.getElementById("bg").style.background = "url(<%=resultContent.getBackUrl()%>)";
 		}; 
 
 		function sendUpdate(){
@@ -24,7 +24,7 @@
 	<body>
 	  <div class = "size">
 		    <article class = "post post-blog">
-		     <br><br><br>
+		    <p class = "title">That day</p><br>
 		      <img src = "http://photo.toast.com/aaaadc/abc/head.png"/>
 		      <div class = "details">
 					<div class="meta">
@@ -34,8 +34,7 @@
 					<strong><%= resultContent.getTitle()%></strong><br><br>
 					<p><%= resultContent.getContent()%></p>
 					<div class="intents">
-						<span class="icon icon-heart"></span>
-						<span class="count"><%= resultContent.getWriteday() %></span>
+						<span class="count"><i class="fa fa-calendar-check-o"></i> <%= resultContent.getWriteday() %></span>
 					</div>
 					<form name="requestForm" method=post action="memo.do">
 						<input type=hidden name=num value="<%=resultContent.getMemoNum()%>">

@@ -158,11 +158,15 @@ public class MemoBean implements Serializable{
 	}
 
 	public String getBack() {
-		return back;
+		return this.back = back;
 	}
 
 	public void setBack(String back) {
 		this.back = back;
+	}
+	
+	public String getBackUrl() {
+		return "http://photo.toast.com/aaaadc/abc/" + this.back + ".jpg";
 	}
 
 	public String getWriteday() {

@@ -23,6 +23,7 @@
 		<div class="container">
 			<div class="grid_12">
 				<div class="inner_container">
+				<p class = "title">Memos</p>
 				<%
 					if(list==null || list.length==0){
 				%>
@@ -36,7 +37,7 @@
 				
 					<div class="col_1of3">
 						<article class="post">
-							<img src="http://placehold.it/400x200/efefef"/>
+							<img src="<%=memo.getBackUrl()%>" onmouseover="this.style.opacity='0.5';" onmouseout="this.style.opacity='1.0';"/>
 							<div class="details">
 								<div class="actions">
 									<a href="memo.do?command=read&num=<%=memo.getMemoNum()%>" class="btn btn-secondary btn-round"><span class="icon-search"></span></a>
@@ -44,8 +45,7 @@
 								<h2><%=memo.getTitle() %></h2>
 								<p>music</p>
 								<div class="intents">
-									<span class="icon-heart"></span>
-									<span class="count"><%= memo.getWriteday()%></span>
+									<span class="count"><i class="fa fa-calendar-check-o"></i> <%= memo.getWriteday()%></span>
 								</div>
 							</div>
 						</article>

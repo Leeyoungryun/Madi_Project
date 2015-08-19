@@ -199,7 +199,7 @@ public class MemoDAO {
 		MemoBean[] list  = null;
 		ArrayList alist = new ArrayList();
 		
-		String sql="SELECT MEMO_NUM, MEMBER_NUM, TITLE, CONTENT, HASHTAG1, HASHTAG2, HASHTAG3, WRITEDAY, MUSIC_NUM FROM MEMO WHERE MEMBER_NUM = ? ORDER BY MEMO_NUM DESC";	
+		String sql="SELECT MEMO_NUM, MEMBER_NUM, TITLE, CONTENT, HASHTAG1, HASHTAG2, HASHTAG3, BACK, WRITEDAY, MUSIC_NUM FROM MEMO WHERE MEMBER_NUM = ? ORDER BY MEMO_NUM DESC";	
 		
 		try {
 			con = source.getConnection();
@@ -208,7 +208,7 @@ public class MemoDAO {
 			rset = pstmt.executeQuery();
 			while(rset.next()){
 				alist.add(new MemoBean(rset.getInt(1), rset.getInt(2), rset.getString(3), rset.getString(4), 
-						rset.getString(5), rset.getString(6), rset.getString(7), rset.getString(8), rset.getInt(9)));
+						rset.getString(5), rset.getString(6), rset.getString(7), rset.getString(8), rset.getString(9), rset.getInt(10)));
 			}
 			
 			list = new MemoBean[alist.size()];

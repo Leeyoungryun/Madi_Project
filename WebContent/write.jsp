@@ -25,9 +25,16 @@
 	</c:choose>
 	  <div class = "size">
 	    <article class = "post post-blog">
-	      <p class = "title">Write</p>
+	      <p class = "title">Today</p><br>
 	      <img id = head src = "http://photo.toast.com/aaaadc/abc/head.png"/>
 	      <div class = "details">
+	      	  <button onclick = "bgChange('happy');">1</button>
+		      <button onclick = "bgChange('angry');">2</button>
+		      <button onclick = "bgChange('sad');">3</button>
+		      <button onclick = "bgChange('joy');">4</button>
+		      <button onclick = "bgChange('love');">5</button>
+		      <button onclick = "bgChange('hate');">6</button>
+		      <button onclick = "bgChange('expect');">7</button>
 		      <form name = "writeForm" method = "post" action = "memo.do">
 				<input type = "hidden" name = "command" value = "write">
 				<input type ="hidden" name = "member" size = "30" value = "${member.memberNum}">
@@ -37,19 +44,12 @@
 		        </div><br>
 		        <i class="fa fa-angle-double-right icolor"></i> <input type = "text" name = "title" cols = "30" rows = "1" class = "no-line" placeholder = "제목을 입력하세요 "><br><br>
 				<p><i class="fa fa-pencil-square-o icolor"></i> Content</p><textarea name = "content" cols = "80" rows="5" class = "no-line"></textarea><br><br><br>
-		        <i class="fa fa-tags icolor"></i> <input type = "text" class = "hash no-line" value = "#" readonly><input type = "text" name = "hashtag1" class = "btn no-line width" value = "tag1">&nbsp;&nbsp;
-		        <input type = "text" class = "hash no-line" value = "#" readonly><input type = "text" name = "hashtag2" class = "btn no-line width" value = "tag2">&nbsp;&nbsp;
-		        <input type = "text" class = "hash no-line" value = "#" readonly><input type = "text" name = "hashtag3" class = "btn no-line width" value = "tag3">
+		        <i class="fa fa-tags icolor"></i> <input type = "text" class = "hash no-line" value = "#" readonly><input type = "text" name = "hashtag1" class = "btn no-line width" value = "tag1" maxlength = "10">&nbsp;&nbsp;
+		        <input type = "text" class = "hash no-line" value = "#" readonly><input type = "text" name = "hashtag2" class = "btn no-line width" value = "tag2" maxlength = "10">&nbsp;&nbsp;
+		        <input type = "text" class = "hash no-line" value = "#" readonly><input type = "text" name = "hashtag3" class = "btn no-line width" value = "tag3" maxlength = "10">
 		        <div class="intents">
 		        	<input type = submit class="btn btn-quaternary btn-caps no-line" value="Save"> 
 		        </div><br>
-		        <button onclick = "bgChange('happy');">1</button>
-		        <button onclick = "bgChange('angry');">2</button>
-		        <button onclick = "bgChange('sad');">3</button>
-		        <button onclick = "bgChange('joy');">4</button>
-		        <button onclick = "bgChange('love');">5</button>
-		        <button onclick = "bgChange('hate');">6</button>
-		        <button onclick = "bgChange('expect');">7</button>
 			  </form>
 	      </div>
 	    </article> 

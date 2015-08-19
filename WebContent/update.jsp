@@ -20,7 +20,7 @@
 	<body>
 		<div class = "size">
 		    <article class = "post post-blog">
-		     <br><br><br>
+		      <p class = "title">Update</p><br>
 		      <img src = "http://photo.toast.com/aaaadc/abc/head.png"/>
 		      <div class = "details">    
 			      <form name=updateForm method=post action="memo.do" onSubmit='return checkValid()'>
