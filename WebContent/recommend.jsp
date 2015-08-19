@@ -62,14 +62,14 @@
         	</div>
         </div>
         <a href="memo.do">¸®½ºÆ®</a>
-		<form name=updateMusic method=post action="memo.do">
+		<form name="save" method=post action="memo.do">
 			<input type="hidden" name = "command" value= "save">
 			<input type="hidden" name = "member" value= "<%= resultContent.getMemberNum() %>">
 			<input type="hidden" name = "title" value= "<%= resultContent.getTitle() %>">
 			<input type="hidden" name = "content" value= "<%= resultContent.getContent() %>">
-			<input type="hidden" name = "hashTag1" value= "<%= resultContent.getHashTag1() %>">
-			<input type="hidden" name = "hashTag2" value= "<%= resultContent.getHashTag2() %>">
-			<input type="hidden" name = "hashTag3" value= "<%= resultContent.getHashTag3() %>">
+			<input type="hidden" name = "hashtag1" value= "<%= resultContent.getHashTag1() %>">
+			<input type="hidden" name = "hashtag2" value= "<%= resultContent.getHashTag2() %>">
+			<input type="hidden" name = "hashtag3" value= "<%= resultContent.getHashTag3() %>">
 			<input type="hidden" name = "back" value= "<%= resultContent.getBack() %>">
 			<input type="hidden" name = "musicNum" value= "<%= resultMusic.getMusicNum() %>">
 			<input type="submit" value ="save">

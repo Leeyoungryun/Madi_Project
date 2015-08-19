@@ -158,7 +158,7 @@ public class MemoBean implements Serializable{
 	}
 
 	public String getBack() {
-		return this.back = back;
+		return back;
 	}
 
 	public void setBack(String back) {
