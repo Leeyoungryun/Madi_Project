@@ -21,12 +21,20 @@ public class WordSegmentAnalyze {
 	            s = source;
 	        @SuppressWarnings("unchecked")
 			List<List<AnalysisOutput>> outList = WSA.analyze(s);
-	    
+	        String before= null;
 	     
 	        for(List<AnalysisOutput> o: outList) {
 	        	for(AnalysisOutput a:o){
+	        		if(a.getSource()==before)
+	        		{
+	        			
 	        		
+	        		}
+	        		
+	        		else{
 	        		segmented.append(a.getSource()).append(" ");
+	        		before=a.getSource();
+	        		}
 	        	//System.out.println(a.getSource());
 	        	}
 	        	

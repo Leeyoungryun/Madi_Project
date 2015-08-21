@@ -1,9 +1,0 @@
-@relation sentiment
-@attribute 0 string
-@attribute 1 string
-@attribute 2 {excited,joyful,natural,nervous,sad,angry}
-@data
-'﻿ㅎㅠㄱㅏ','ㄱㅏㄷㅏ',joyful
-'ㅆㅏㅇㅜㄹㅓ','ㄱㅏㄷㅏ',angry
-'ㅅㅣㄱㄷㅏㅇ','ㄱㅏㄷㅏ',natural
-'ㅂㅏㄷㅏ','ㄱㅏㄷㅏ',joyful
