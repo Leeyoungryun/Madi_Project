@@ -13,6 +13,7 @@ import model.dao.MusicDAO;
 import model.domain.MemoBean;
 import model.domain.MusicBean;
 import ExtractWord.writeTest;
+import ExtractWord.writeTest2;
 
  
  public class Memo extends javax.servlet.http.HttpServlet {
@@ -55,13 +56,13 @@ import ExtractWord.writeTest;
 				return;
 			}
 			
-			String[] hash = {hashTag1, hashTag2, hashTag3};
+			String[] hash = {hashTag1, hashTag2, hashTag3, ""};
 			
-			if(writeTest.test(hash)!=null){
+			if(writeTest2.test(hash, back)!=null){
 				int memberNum = Integer.parseInt(member);
 				MemoBean gContent = new MemoBean(memberNum, title, content, hashTag1, hashTag2, hashTag3, back);
-				String[] result = writeTest.test(hash);
-				MusicBean music = MusicDAO.selectMusic(result[0]);
+				String emotionResult = writeTest2.test(hash, back);
+				MusicBean music = MusicDAO.selectMusic(emotionResult);
 				if(music == null){
 					response.sendRedirect("error.jsp");
 					return;						
