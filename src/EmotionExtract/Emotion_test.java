@@ -15,7 +15,7 @@ public class Emotion_test {
 		// TODO Auto-generated method stub
 
 		String[] emotion = new String[4] ;
-		String[] str ={"너는","나를","잊지마",""};
+		String[] str ={"눈물을","참을수없어","ㅠㅠ",""};
 		StringBuilder sentence= new StringBuilder();
 		for(int i=0; i<str.length; i++)
 		{
@@ -43,11 +43,11 @@ public class Emotion_test {
 					emotion[i] = textEngine.getEmotion(str[i]);
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
-					e.printStackTrace();
+					//e.printStackTrace();
 				}
 			}
 			System.out.println();
-			System.out.println(emotion.length);
+			
 			for (int i = 0; i < emotion.length; i++) {
 				System.out.println(emotion[i].toString());
 			}
@@ -61,6 +61,8 @@ public class Emotion_test {
 		}
 		
 		Emotionform.chooseEmotion(emotion,picture);
+		
+		
 
 	}
 
