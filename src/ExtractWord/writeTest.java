@@ -16,7 +16,7 @@ public class writeTest {
 		String[] emotion = null;
 
 		try {
-			ObjectInputStream ois = new ObjectInputStream(new FileInputStream("C:/project/Madi_Project/data/gee.dat"));
+			ObjectInputStream ois = new ObjectInputStream(new FileInputStream("C:/project/Madi_Project/data/0821_tested.dat"));
 
 			PhonemeTextEngine textEngine = (PhonemeTextEngine) ois
 					.readObject();
