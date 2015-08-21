@@ -5,6 +5,7 @@
 	<head>
 		<title>상세 정보</title>
 		<link href = "<%=request.getContextPath()%>/css/write.css" rel="stylesheet">
+		<link href="<%=request.getContextPath()%>/css/recommend.css" rel="stylesheet" >
 		<script language=javascript>
 		window.onload = function(){
 			document.getElementById("bg").style.background = "url(<%=resultContent.getBackUrl()%>)";
@@ -29,10 +30,18 @@
 		      <div class="details">
 					<div class="meta">
 					  <p><i class="fa fa-user icolor"></i> Written by <strong>${member.name}</strong></p>
-					  <h2><%= resultMusic.getTitle() %> <%= resultMusic.getSinger()%></h2>
-					  <audio src="<%= resultMusic.getUrl() %>" controls aoutoplay></audio>  
 			        </div>
-					<i class="fa fa-angle-double-right icolor"></i><strong><%= resultContent.getTitle()%></strong><br><br>
+			      	<div class="audioplayer">
+						<div class="audioplayer__controls">
+							<a href="#" class="audioplayer__play-pause"></a>
+							<div class="audioplayer__track-info">
+								<div class="audioplayer__title" title=""></div>
+								<div class="audioplayer__artist" title=""></div>
+							</div>
+						</div>
+					<audio src="<%= resultMusic.getUrl() %>" volume="75" data-title="<%= resultMusic.getTitle() %>" data-artist="<%= resultMusic.getSinger() %>"></audio>
+					</div><br>
+					<p><i class="fa fa-angle-double-right icolor"></i> <big><%= resultContent.getTitle()%></big></p><br><br>
 					<p><i class="fa fa-pencil-square-o icolor"></i> Content</p>
 					<p><%= resultContent.getContent()%></p>
 					<div class="intents">
@@ -54,4 +63,6 @@
 	  </div>
 	  <div id="bg" class="fullscreen-bg"></div>	
 	</body>
+	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="js/index.js"></script>    
 </html>

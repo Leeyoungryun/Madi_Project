@@ -8,8 +8,8 @@
   <head>
     <meta charset="UTF-8">
     <title>노래추천</title>
-        <link rel="stylesheet" href="css/recommend.css">
-        <link rel="stylesheet" href="css/recommend.css">
+        <link href = "<%=request.getContextPath()%>/css/index.css" rel="stylesheet">
+		<link href="<%=request.getContextPath()%>/css/recommend.css" rel="stylesheet" >
   </head>
   <body>
   	<c:choose>
@@ -20,39 +20,68 @@
 			<a name="5"><%@include file="../header2.jsp"%></a>
 		</c:otherwise>
 	</c:choose>
-	<div class="audioplayer">
-	  <img class="audioplayer__artwork" src="https://unsplash.it/280/130">
-	  <div class="audioplayer__trackbar">
-	    <div class="audioplayer__trackbar-progress" style="width: 37%"></div>
-	  </div>
-	  <div class="audioplayer__duration" data-current="1:37" data-total="3:52"></div>
-	  <div class="audioplayer__controls">
-	    <a href="#" class="audioplayer__play-pause"></a>
-	    <div class="audioplayer__track-info">
-	      <div class="audioplayer__title" title="Is This Love">Is This Love</div>
-	      <div class="audioplayer__artist" title="Bob Marley">Bob Marley</div>
-	    </div>
-	    <div class="audioplayer__side-controls">
-	      <a href="#" class="audioplayer__repeat" title="Toggle repeat"></a>
-	      <a href="#" class="audioplayer__prev" title="Previous track"></a>
-	      <a href="#" class="audioplayer__next" title="Next track"></a>
-	    </div>
-	  </div>
-	  <audio src="<%= resultMusic.getUrl() %>" volume="75" data-title="<%= resultMusic.getTitle() %>" data-artist="<%= resultMusic.getSinger() %>"></audio>
-	</div>
-    <a href="memo.do">리스트</a>
-	<form name="save" method=post action="memo.do">
-		<input type="hidden" name="command" value= "save">
-		<input type="hidden" name="member" value= "<%= resultContent.getMemberNum() %>">
-		<input type="hidden" name="title" value= "<%= resultContent.getTitle() %>">
-		<input type="hidden" name="content" value= "<%= resultContent.getContent() %>">
-		<input type="hidden" name="hashtag1" value= "<%= resultContent.getHashTag1() %>">
-		<input type="hidden" name="hashtag2" value= "<%= resultContent.getHashTag2() %>">
-		<input type="hidden" name="hashtag3" value= "<%= resultContent.getHashTag3() %>">
-		<input type="hidden" name="back" value= "<%= resultContent.getBack() %>">
-		<input type="hidden" name="musicNum" value= "<%= resultMusic.getMusicNum() %>">
-		<input type="submit" value="save">
-	</form>
+	<p class="title">Music</p></a>
+	
+	<div class="TAPEmain sideA">
+        	<div class="TAPEscrew" id="TAPEscrew01"></div>
+        	<div class="TAPEscrew" id="TAPEscrew02"></div>
+        	<div class="TAPEscrew" id="TAPEscrew03"></div>
+        	<div class="TAPEscrew" id="TAPEscrew04"></div>
+
+        	<div class="TAPElabel">
+                <div class="TAPEmecha">
+                    <div class="TAPEgearhole" id="TAPEgearhole01">
+                        <div class="TAPEgear">
+                            <div class="TAPEcog"></div>
+                        </div>
+                    </div>
+                    <div class="TAPEgearhole" id="TAPEgearhole02">
+                        <div class="TAPEgear">
+                            <div class="TAPEcog"></div>
+                        </div>
+                    </div>
+
+                    <div class="TAPEwindow">
+                        <div class="TAPEwheel" id="TAPEwheel01"></div>
+                        <div class="TAPEwheel" id="TAPEwheel02"></div>
+                    </div>
+
+                    <div class="TAPErule"></div>
+                    <div class="TAPEscale">
+                        <span>100</span>
+                        <span>50</span>
+                        <span>0</span>
+                    </div>
+                </div>
+            </div>
+        	<div class="TAPEbump">
+        		<div class="TAPEscrew" id="TAPEscrew05"></div>
+           		<div class="TAPEhole" id="TAPEhole01"></div>
+                <div class="TAPEhole" id="TAPEhole02"></div>
+        	</div>
+        	<div class="audioplayer" style="position: absolute; left: 22px; top: 10px">
+			  <div class="audioplayer__controls">
+			    <a href="#" class="audioplayer__play-pause"></a>
+			    <div class="audioplayer__track-info">
+			      <div class="audioplayer__title" title="Is This Love">Is This Love</div>
+			      <div class="audioplayer__artist" title="Bob Marley">Bob Marley</div>
+			    </div>
+			  </div>
+			  <audio src="<%= resultMusic.getUrl() %>" volume="75" data-title="<%= resultMusic.getTitle() %>" data-artist="<%= resultMusic.getSinger() %>"></audio>
+			</div>
+			<form name="save" method="post" action="memo.do">
+				<input type="hidden" name="command" value= "save">
+				<input type="hidden" name="member" value= "<%= resultContent.getMemberNum() %>">
+				<input type="hidden" name="title" value= "<%= resultContent.getTitle() %>">
+				<input type="hidden" name="content" value= "<%= resultContent.getContent() %>">
+				<input type="hidden" name="hashtag1" value= "<%= resultContent.getHashTag1() %>">
+				<input type="hidden" name="hashtag2" value= "<%= resultContent.getHashTag2() %>">
+				<input type="hidden" name="hashtag3" value= "<%= resultContent.getHashTag3() %>">
+				<input type="hidden" name="back" value= "<%= resultContent.getBack() %>">
+				<input type="hidden" name="musicNum" value= "<%= resultMusic.getMusicNum() %>">
+				<input type="submit" value="save">
+			</form>
+    </div>
 	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src="js/index.js"></script>    
   </body>
