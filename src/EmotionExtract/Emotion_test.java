@@ -15,7 +15,16 @@ public class Emotion_test {
 		// TODO Auto-generated method stub
 
 		String[] emotion = new String[4] ;
-		String[] str ={"너는","나를","잊었니"};
+		String[] str ={"너는","나를","잊지마",""};
+		StringBuilder sentence= new StringBuilder();
+		for(int i=0; i<str.length; i++)
+		{
+			sentence.append(str[i]);
+		
+		}
+		str[3]=sentence.toString();
+		
+		
 		
 		String picture = "happy";
 	
