@@ -14,13 +14,11 @@ import model.domain.MemberBean;
 
 public class Member extends HttpServlet {
 	
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException{
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		process(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException{
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		process(request, response);
 	}
 	
@@ -35,16 +33,17 @@ public class Member extends HttpServlet {
 			String name = request.getParameter("name");
 			String phone = request.getParameter("phone");
 			String local = request.getParameter("local");
-			try {
+			
+			try{
 				if((request.getParameter("password")).equals(request.getParameter("password2"))){
 					MemberBean member = MemberDAO.joinMember(email, pw, name, phone, local);
 					HttpSession session = request.getSession();
 					response.sendRedirect("login/login.jsp");
 				}else{
-					response.sendRedirect("error/signinError.jsp");
+					response.sendRedirect("error.jsp");
 				}
-			} catch (Exception e) {
-				response.sendRedirect("error/signinError.jsp");
+			}catch(Exception e){
+				response.sendRedirect("error.jsp");
 			}
 			
 		}else if(command.equals("update")){					
@@ -57,14 +56,13 @@ public class Member extends HttpServlet {
 			try{		
 				if((request.getParameter("pw")).equals(request.getParameter("pw2"))){
 				MemberDAO.updateMember(mb);			
-				response.sendRedirect("myPage/successMemUpdate.jsp");
+				response.sendRedirect("index.jsp");
 				}else{
-					response.sendRedirect("error/updatePwError.jsp");
+					response.sendRedirect("error.jsp");
 				}
 			}catch(SQLException e){
-				response.sendRedirect("error/updatePwError.jsp");	
+				response.sendRedirect("error.jsp");	
 			}
-			
 		}
 	}
 }

@@ -6,13 +6,13 @@
 		<link href="<%=request.getContextPath()%>/css/signup.css" rel="stylesheet">
 		<title>회원가입</title>
 		<script>
-		function msub() {
-			if (document.f.password2.length == 0) {
+		function msub(){
+			if(document.f.password2.length == 0){
 				alert("패스워드를 한번 더 적어주세요!");
 				document.f.password2.focus();
 				return false;
 			}
-			if ((document.f.password.value) != (document.f.password2.value)) {
+			if((document.f.password.value) != (document.f.password2.value)){
 				alert("패스워드가 일치하지 않습니다.!");
 				document.f.password.focus();
 				return false;

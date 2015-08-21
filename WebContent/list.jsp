@@ -2,11 +2,11 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <%@ page import="model.domain.MemoBean" %> 
 <%
- 	MemoBean [] list=(MemoBean[])request.getAttribute("list");
+ 	MemoBean [] list = (MemoBean[])request.getAttribute("list");
  %>
 <html>
 	<head>
-	<link href = "<%=request.getContextPath()%>/css/write.css" rel="stylesheet">
+	<link href="<%=request.getContextPath()%>/css/write.css" rel="stylesheet">
 	<title>memo 목록</title>
 	
 	<c:choose>
@@ -23,9 +23,9 @@
 		<div class="container">
 			<div class="grid_12">
 				<div class="inner_container">
-				<p class = "title">Memos</p>
+				<p class="title">Memos</p>
 				<%
-					if(list==null || list.length==0){
+					if(list == null || list.length == 0){
 				%>
 					<p>등록된 메모가 없습니다</p>
 				<%
@@ -34,7 +34,6 @@
 						for(int i = 0; i <list.length ; i++){
 					 		memo = list[i];
 				%>
-				
 					<div class="col_1of3">
 						<article class="post">
 							<img src="<%=memo.getBackUrl()%>" onmouseover="this.style.opacity='0.5';" onmouseout="this.style.opacity='1.0';"/>

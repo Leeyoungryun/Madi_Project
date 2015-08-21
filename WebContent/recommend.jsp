@@ -9,8 +9,8 @@
     <meta charset="UTF-8">
     <title>노래추천</title>
         <link rel="stylesheet" href="css/recommend.css">
+        <link rel="stylesheet" href="css/recommend.css">
   </head>
-
   <body>
   	<c:choose>
 		<c:when test="${empty member}">
@@ -42,16 +42,16 @@
 	</div>
     <a href="memo.do">리스트</a>
 	<form name="save" method=post action="memo.do">
-		<input type="hidden" name = "command" value= "save">
-		<input type="hidden" name = "member" value= "<%= resultContent.getMemberNum() %>">
-		<input type="hidden" name = "title" value= "<%= resultContent.getTitle() %>">
-		<input type="hidden" name = "content" value= "<%= resultContent.getContent() %>">
-		<input type="hidden" name = "hashtag1" value= "<%= resultContent.getHashTag1() %>">
-		<input type="hidden" name = "hashtag2" value= "<%= resultContent.getHashTag2() %>">
-		<input type="hidden" name = "hashtag3" value= "<%= resultContent.getHashTag3() %>">
-		<input type="hidden" name = "back" value= "<%= resultContent.getBack() %>">
-		<input type="hidden" name = "musicNum" value= "<%= resultMusic.getMusicNum() %>">
-		<input type="submit" value ="save">
+		<input type="hidden" name="command" value= "save">
+		<input type="hidden" name="member" value= "<%= resultContent.getMemberNum() %>">
+		<input type="hidden" name="title" value= "<%= resultContent.getTitle() %>">
+		<input type="hidden" name="content" value= "<%= resultContent.getContent() %>">
+		<input type="hidden" name="hashtag1" value= "<%= resultContent.getHashTag1() %>">
+		<input type="hidden" name="hashtag2" value= "<%= resultContent.getHashTag2() %>">
+		<input type="hidden" name="hashtag3" value= "<%= resultContent.getHashTag3() %>">
+		<input type="hidden" name="back" value= "<%= resultContent.getBack() %>">
+		<input type="hidden" name="musicNum" value= "<%= resultMusic.getMusicNum() %>">
+		<input type="submit" value="save">
 	</form>
 	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src="js/index.js"></script>    

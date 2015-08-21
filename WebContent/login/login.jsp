@@ -7,7 +7,7 @@
 		<link href="<%=request.getContextPath()%>/css/login.css" rel="stylesheet">
 		<script language="JavaScript">
 		function signup(){
-			document.location.href="<%=request.getContextPath()%>/signup/signup.jsp"
+			document.location.href = "<%=request.getContextPath()%>/signup/signup.jsp"
 		}
 		</script>
 	</head>

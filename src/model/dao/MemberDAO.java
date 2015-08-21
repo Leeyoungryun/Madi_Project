@@ -13,70 +13,77 @@ import javax.sql.DataSource;
 
 import model.domain.MemberBean;
 
-public class MemberDAO {
+public class MemberDAO{
 	private static MemberDAO instance = new MemberDAO();
 
-	public static MemberDAO getInstance() {
+	public static MemberDAO getInstance(){
 		return instance;
 	}
+	
 	static DataSource source = null;
 
-	static {
-		try {
+	static{
+		try{
 			Context initContext = new InitialContext();
 			Context envContext = (Context) initContext.lookup("java:/comp/env");
 			source = (DataSource) envContext.lookup("jdbc/oracle");
-		} catch (NamingException e) {
+		}catch(NamingException e){
 			e.printStackTrace();
 		}
 	}
-//·Î±×ÀÎ
-	public static MemberBean checkMember(String email, String pw) {
+
+	public static MemberBean checkMember(String email, String pw){
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		try {
+		
+		try{
 			con = source.getConnection();
 			pstmt = con.prepareStatement("SELECT * FROM MEMBER WHERE EMAIL=? AND PW = ?");
 			pstmt.setString(1, email);
 			pstmt.setString(2, pw);
 			rset = pstmt.executeQuery();
+			
 			if (rset.next()) {
 				return new MemberBean(rset.getInt("MEMBER_NUM"), rset.getString("EMAIL"), rset.getString("NAME"), rset.getString("PHONE"), rset.getString("LOCAL"));
 			}
-		} catch (SQLException e) {
+			
+		}catch(SQLException e){
 			e.printStackTrace();
-		} finally {
+		}finally{
 			close(rset, pstmt, con);
 		}
 		return null;
 	}
 	
-	public static MemberBean checkMember(String email) {
-		MemberBean mem = null;
+	public static MemberBean checkMember(String email){
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		try {
+		
+		try{
 			con = source.getConnection();
 			pstmt = con.prepareStatement("SELECT * FROM MEMBER WHERE EMAIL=?");
 			pstmt.setString(1, email);
 			rset = pstmt.executeQuery();
-			if (rset.next()) {
+			
+			if(rset.next()){
 				return new MemberBean(rset.getInt("MEMBER_NUM"), rset.getString("EMAIL"), rset.getString("NAME"), rset.getString("PHONE"), rset.getString("LOCAL"));
 			}
-		} catch (SQLException e) {
+			
+		}catch(SQLException e){
 			e.printStackTrace();
-		} finally {
+		}finally{
 			close(rset, pstmt, con);
 		}
 		return null;
 	}
 
-	public static MemberBean joinMember(String email, String pw, String name, String phone, String local) {
+	public static MemberBean joinMember(String email, String pw, String name, String phone, String local){
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		try {
+		
+		try{
 			con = source.getConnection();
 			pstmt = con.prepareStatement("INSERT INTO MEMBER VALUES(SEQ_MEMBER_NUM.NEXTVAL,?,?,?,?,?)");
 			pstmt.setString(1, email);
@@ -84,11 +91,10 @@ public class MemberDAO {
 			pstmt.setString(3, phone);
 			pstmt.setString(4, local);
 			pstmt.setString(5, name);
-			
 			pstmt.executeUpdate();
-		} catch (SQLException e) {
+		}catch(SQLException e){
 			e.printStackTrace();
-		} finally {
+		}finally{
 			close(pstmt, con);
 		}
 		return null;
@@ -99,46 +105,45 @@ public class MemberDAO {
 		PreparedStatement pstmt = null;
 		boolean result = false;
 		int result2 = 0;
-		try {
+		
+		try{
 			con = source.getConnection();
 			pstmt = con.prepareStatement("DELETE FROM MEMBER WHERE MEMBER_NUM = ?");
 			pstmt.setInt(1, memberNum);
 			System.out.println(memberNum);
 			result2 = pstmt.executeUpdate();
 			
-			if (result2== 1) {
-				System.out.println("¼º°ø");
+			if(result2 == 1){
+				System.out.println("ì„±ê³µ");
 				result = true;
-			} else {
-				System.out.println("½ÇÆÐ");
+			}else{
+				System.out.println("ì‹¤íŒ¨");
 				result = false;
 			}
-		} catch (SQLException e) {
+		}catch(SQLException e){
 			e.printStackTrace();
-		} finally {
+		}finally{
 			close(pstmt, con);
 		}
 		return result;
-		}
+	}
 
 	public static void updateMember(MemberBean mb) throws SQLException{
 		Connection con =  null;
 		PreparedStatement pstmt = null;		
-		String query 
-		    = "UPDATE MEMBER SET PW = ?, PHONE = ?, LOCAL = ? WHERE MEMBER_NUM = ?";				
+		String query = "UPDATE MEMBER SET PW = ?, PHONE = ?, LOCAL = ? WHERE MEMBER_NUM = ?";
+		
 		try{		
-		    con = source.getConnection();			
-				
+		    con = source.getConnection();					
 		    pstmt = con.prepareStatement(query);
 		    pstmt.setString(1,mb.getPw());
 		    pstmt.setString(2,mb.getPhone());		
 		    pstmt.setString(3,mb.getLocal());
 		    pstmt.setInt(4,mb.getMemberNum());
 		    pstmt.executeQuery();
-				
-		}catch(SQLException s){
-		    s.printStackTrace();
-		    throw s;		
+		}catch(SQLException e){
+		    e.printStackTrace();
+		    throw e;		
 		}finally{
 		    close(pstmt,con);
 		}	
@@ -149,51 +154,58 @@ public class MemberDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		MemberBean bean = null;
-		try {
+		
+		try{
 			con = source.getConnection();
 			pstmt = con.prepareStatement("SELECT * FROM MEMBER WHERE MEMBER_NUM=?");
 			pstmt.setInt(1, memberNum);	
 			rset = pstmt.executeQuery();
 
-			if (rset.next()) {
+			if(rset.next()){
 				bean = new MemberBean(rset.getInt(1), rset.getString(2), rset.getString(3), 
 						rset.getString(4), rset.getString(5), rset.getString(6));
 			}
-		} catch (SQLException e) {
+			
+		}catch(SQLException e){
 			e.printStackTrace();
-		} finally {
+		}finally{
 			close(rset, pstmt, con);
 		}
 		return bean;
 	}
 	
-	public static void close(Statement pstmt, Connection con) {
-		try {
-			if (pstmt != null) {
+	public static void close(Statement pstmt, Connection con){
+		try{
+			if(pstmt != null){
 				pstmt.close();
 				pstmt = null;
 			}
-			if (con != null) {
+			
+			if(con != null){
 				con.close();
 				con = null;
 			}
-		} catch (SQLException e) {
+			
+		}catch(SQLException e){
 			e.printStackTrace();
 		}
 	}
 	
-	public static void close(ResultSet rset, Statement pstmt, Connection con) {
-		try {
-			if (rset != null) {
+	public static void close(ResultSet rset, Statement pstmt, Connection con){
+		try{
+			if(rset != null){
 				rset.close();
 			}
-			if (pstmt != null) {
+			
+			if(pstmt != null){
 				pstmt.close();
 			}
-			if (con != null) {
+			
+			if(con != null){
 				con.close();
 			}
-		} catch (SQLException e) {
+			
+		}catch(SQLException e){
 			e.printStackTrace();
 		}
 	}
