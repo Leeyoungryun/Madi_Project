@@ -62,7 +62,7 @@ public class PhonemeTextEngine implements Serializable {
 		String[] extracted=extract.extracting(string);
 		// 단어추출알고리즘
 		int result = classifier.classifyEmotion(extracted[0] + "\t" + extracted[1]);
-		System.out.println(result);
+		//System.out.println(result);
 		
 
 		switch(result)
@@ -77,7 +77,7 @@ public class PhonemeTextEngine implements Serializable {
 				emotion ="sad";
 				break;
 			case 3:
-				emotion ="joy";
+				emotion ="excite";
 				break;
 			case 4:
 				emotion ="love";

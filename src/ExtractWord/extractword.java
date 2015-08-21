@@ -35,7 +35,7 @@ public class extractword {
 		// TODO Auto-generated method stub
 		
 		
-		extractFromTxt("data/test.txt");
+		extractFromTxt("data/0725.txt");
 		
 	/*	String[] Words=extracting("사랑해");
 		for(int i=0; i<Words.length; i++)
@@ -51,10 +51,13 @@ public class extractword {
 
 	public static String[] extracting(String input) throws MorphException {
 		TextMorphAnalyzer k_analyzer= new TextMorphAnalyzer();
+		input=input.trim();
 		
 		WordSegmentAnalyze ws_analyzer= new WordSegmentAnalyze(input, false);
 
+		
 		String segmented= ws_analyzer.segmented.toString();
+	
 		 // 띄어쓰기
 		
 		System.out.println(segmented);
@@ -144,8 +147,8 @@ public class extractword {
 		extractedWord[0]=textResult;
 		extractedWord[1]=str;
 		
-		System.out.println(extractedWord[0]);
-		System.out.println(extractedWord[1]);
+		System.out.println(extractedWord[0]+""+extractedWord[1]);
+		//.out.println(extractedWord[1]);
 		return extractedWord;
 	
 	}

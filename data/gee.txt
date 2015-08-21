@@ -1,4 +1,0 @@
-﻿휴가	가다	joyful
-싸우러	가다	angry
-식당	가다	natural
-바다	가다	joyful
