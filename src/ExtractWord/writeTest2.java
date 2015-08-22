@@ -22,7 +22,6 @@ public class writeTest2 {
 		
 		String picture = back;
 	
-
 		try {
 			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(
 					"C:/project/Madi_Project/data/0821_tested.dat"));

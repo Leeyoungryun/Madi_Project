@@ -27,12 +27,13 @@
 			      	<input type="hidden" value="update" name="command">
 			      	<input type="hidden" name="num" value="<%=resultContent.getMemoNum()%>">
 			      	<input type="hidden" name="member" size="30" value="<%=resultContent.getMemberNum()%>">
+			      	<input type="hidden" name="title" value="<%=resultContent.getTitle()%>">
 	
 					<div class="meta">
 			          <p><i class="fa fa-user icolor"></i> Written by <strong>${member.name}</strong></p>
 			        </div>
-					<i class="fa fa-angle-double-right icolor"></i> <input type="text" name="title" cols="30" rows="1" class="no-line" placeholder="<%=resultContent.getTitle()%>"><br><br>
-					<p><i class="fa fa-pencil-square-o icolor"></i> Content</p><textarea name="content" cols="30" rows="5" class="no-line"><%=resultContent.getContent()%></textarea><br><br><br>
+			
+					<p><i class="fa fa-pencil-square-o icolor"></i></p><textarea name="content" cols="30" rows="5" class="no-line"><%=resultContent.getContent()%></textarea><br><br><br>
 		      		<i class="fa fa-tags icolor"></i> <input type="text" class="hash no-line" value="#" readonly><input type="text" name="hashtag1" class="btn no-line width" value="<%=resultContent.getHashTag1()%>" readonly>&nbsp;&nbsp;
 		        	<input type="text" class="hash no-line" value="#" readonly><input type="text" name="hashtag2" class="btn no-line width" value="<%=resultContent.getHashTag2()%>" readonly>&nbsp;&nbsp;
 		        	<input type="text" class="hash no-line" value="#" readonly><input type="text" name="hashtag3" class="btn no-line width" value="<%=resultContent.getHashTag3()%>" readonly><br><br>

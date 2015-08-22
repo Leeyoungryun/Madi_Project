@@ -41,8 +41,7 @@
 						</div>
 					<audio src="<%= resultMusic.getUrl() %>" volume="75" data-title="<%= resultMusic.getTitle() %>" data-artist="<%= resultMusic.getSinger() %>"></audio>
 					</div><br>
-					<p><i class="fa fa-angle-double-right icolor"></i> <big><%= resultContent.getTitle()%></big></p><br><br>
-					<p><i class="fa fa-pencil-square-o icolor"></i> Content</p>
+					<p><i class="fa fa-pencil-square-o icolor"></i></p>
 					<p><%= resultContent.getContent()%></p>
 					<div class="intents">
 						<span class="count"><i class="fa fa-calendar-check-o"></i> <%= resultContent.getWriteday()%></span>

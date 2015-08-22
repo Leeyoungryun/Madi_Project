@@ -51,7 +51,9 @@ import ExtractWord.writeTest2;
 			String hashTag3 = request.getParameter("hashtag3");
 			String back = request.getParameter("back");
 			
-			if(title == null || title.trim().length() == 0 ){
+			if(hashTag1 == null || hashTag1.trim().length() == 0 ||
+			   hashTag2 == null || hashTag2.trim().length() == 0 ||
+			   hashTag3 == null || hashTag3.trim().length() == 0){
 				response.sendRedirect("write.jsp");
 				return;
 			}
@@ -127,7 +129,6 @@ import ExtractWord.writeTest2;
 			//System.out.println(content);
 			
 			if(strNum == null || strNum.trim().length() == 0 ||
-				title == null || title.trim().length() == 0 ||
 				content == null || content.trim().length() == 0 ){
 					response.sendRedirect("memo.do");
 					return;
