@@ -24,7 +24,7 @@ public class writeTest2 {
 	
 		try {
 			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(
-					"C:/project/Madi_Project/data/0821_tested.dat"));
+					"C:/project/Madi_Project/data/0725_jinhee.dat"));
 
 			PhonemeTextEngine textEngine = (PhonemeTextEngine) ois
 					.readObject();
@@ -53,6 +53,7 @@ public class writeTest2 {
 		}
 		
 		String result = Emotionform2.chooseEmotion(emotion, picture);
+		System.out.println("result"+result);
 		return result;
 	}
 }

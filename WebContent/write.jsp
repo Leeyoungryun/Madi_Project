@@ -33,7 +33,7 @@
 	      	  <button class="picBtn" onclick="bgChange('happy');">¡Ü</button>
 		      <button class="picBtn" onclick="bgChange('angry');">¡Ü</button>
 		      <button class="picBtn" onclick="bgChange('sad');">¡Ü</button>
-		      <button class="picBtn" onclick="bgChange('joy');">¡Ü</button>
+		      <button class="picBtn" onclick="bgChange('excite');">¡Ü</button>
 		      <button class="picBtn" onclick="bgChange('love');">¡Ü</button>
 		      <button class="picBtn" onclick="bgChange('hate');">¡Ü</button>
 		      <button class="picBtn" onclick="bgChange('expect');">¡Ü</button>
