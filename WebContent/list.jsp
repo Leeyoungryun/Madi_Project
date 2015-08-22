@@ -23,7 +23,7 @@
 		<div class="container">
 			<div class="grid_12">
 				<div class="inner_container">
-				<p class="title" style="color:#e95353">Memos</p>
+				<br><br><p class="title" style="color:#e95353">Memos</p>
 				<%
 					if(list == null || list.length == 0){
 				%>

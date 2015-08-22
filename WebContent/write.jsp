@@ -25,6 +25,7 @@
 	</c:choose>
 	  <div class="size">
 	    <article class="post post-blog">
+	      <br><br>
 	      <p class="title">Today</p><br>
 	      <img id=head src="http://photo.toast.com/aaaadc/abc/head.png"/>
 	      <div class="details">

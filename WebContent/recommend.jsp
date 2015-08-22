@@ -10,6 +10,7 @@
     <title>노래추천</title>
         <link href = "<%=request.getContextPath()%>/css/index.css" rel="stylesheet">
 		<link href="<%=request.getContextPath()%>/css/recommend.css" rel="stylesheet" >
+		<link href="<%=request.getContextPath()%>/css/write.css" rel="stylesheet">
   </head>
   <body>
   	<c:choose>
@@ -20,6 +21,7 @@
 			<a name="5"><%@include file="../header2.jsp"%></a>
 		</c:otherwise>
 	</c:choose>
+	<br><br>
 	<p class="title">Music</p></a>
 	
 	<div class="TAPEmain sideA">
