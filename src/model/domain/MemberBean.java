@@ -6,26 +6,26 @@ public class MemberBean {
 	private String pw;
 	private String name;
 	private String phone;
-	private String local;
+	private String tendency;
 
 	public MemberBean() { }
 
-	public MemberBean(int memberNum, String email, String name, String phone, String local) {
+	public MemberBean(int memberNum, String email, String name, String phone, String tendency) {
 		this.memberNum = memberNum;
 		this.email = email;
 		this.name = name;
 		this.phone = phone;
-		this.local = local;
+		this.tendency = tendency;
 	}
 
 	public MemberBean(int memberNum, String email, String pw, String name,
-			String phone, String local) {
+			String phone, String tendency) {
 		this.memberNum = memberNum;
 		this.email = email;
 		this.pw = pw;
 		this.name = name;
 		this.phone = phone;
-		this.local = local;
+		this.tendency = tendency;
 	}
 
 	public int getMemberNum() {
@@ -68,12 +68,12 @@ public class MemberBean {
 		this.phone = phone;
 	}
 
-	public String getLocal() {
-		return local;
+	public String getTendency() {
+		return tendency;
 	}
 
-	public void setLocal(String local) {
-		this.local = local;
+	public void setTendency(String tendency) {
+		this.tendency = tendency;
 	}
 
 	public String toString() {
@@ -88,8 +88,8 @@ public class MemberBean {
 		builder.append(name);
 		builder.append(", phone=");
 		builder.append(phone);
-		builder.append(", local=");
-		builder.append(local);
+		builder.append(", tendency=");
+		builder.append(tendency);
 		builder.append("]");
 		return builder.toString();
 	}

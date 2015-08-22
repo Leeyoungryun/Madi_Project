@@ -33,14 +33,18 @@ public class MusicDAO {
 		}
 	}
 
-	public static MusicBean selectMusic(String emotion){
+	public static MusicBean selectMusic(String emotion, String tendency){
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
+		String field = "EMOTION";
+		if(tendency.equals("yes")){
+			field = "EMOTION2";
+		}
 		
 		try{
 			con = source.getConnection();
-			pstmt = con.prepareStatement("SELECT * FROM (SELECT * FROM MUSIC WHERE EMOTION = ? ORDER BY DBMS_RANDOM.VALUE) WHERE ROWNUM = 1");
+			pstmt = con.prepareStatement("SELECT * FROM (SELECT * FROM MUSIC WHERE " + field + " = ? ORDER BY DBMS_RANDOM.VALUE) WHERE ROWNUM = 1");
 			pstmt.setString(1, emotion);
 			rset = pstmt.executeQuery();
 			if (rset.next()) {

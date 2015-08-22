@@ -54,8 +54,8 @@
 	        </div>
 	        
 	        <div class="form__field">
-	          <label class="fontawesome-map-marker"><span class="hidden">Local</span></label>
-	          <input type="text" name="local" class="form__input" placeholder="Local" required>
+	          <label class="fontawesome-map-marker"><span class="hidden">Tendency</span></label>
+	          <input type="text" name="tendency" class="form__input" placeholder="Tendency" required>
 	        </div>
 	        <br><br>        
 	        <div class="form__field">

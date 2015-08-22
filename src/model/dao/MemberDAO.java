@@ -45,7 +45,7 @@ public class MemberDAO{
 			rset = pstmt.executeQuery();
 			
 			if (rset.next()) {
-				return new MemberBean(rset.getInt("MEMBER_NUM"), rset.getString("EMAIL"), rset.getString("NAME"), rset.getString("PHONE"), rset.getString("LOCAL"));
+				return new MemberBean(rset.getInt("MEMBER_NUM"), rset.getString("EMAIL"), rset.getString("NAME"), rset.getString("PHONE"), rset.getString("TENDENCY"));
 			}
 			
 		}catch(SQLException e){
@@ -68,7 +68,7 @@ public class MemberDAO{
 			rset = pstmt.executeQuery();
 			
 			if(rset.next()){
-				return new MemberBean(rset.getInt("MEMBER_NUM"), rset.getString("EMAIL"), rset.getString("NAME"), rset.getString("PHONE"), rset.getString("LOCAL"));
+				return new MemberBean(rset.getInt("MEMBER_NUM"), rset.getString("EMAIL"), rset.getString("NAME"), rset.getString("PHONE"), rset.getString("TENDENCY"));
 			}
 			
 		}catch(SQLException e){
@@ -79,7 +79,7 @@ public class MemberDAO{
 		return null;
 	}
 
-	public static MemberBean joinMember(String email, String pw, String name, String phone, String local){
+	public static MemberBean joinMember(String email, String pw, String name, String phone, String tendency){
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		
@@ -89,7 +89,7 @@ public class MemberDAO{
 			pstmt.setString(1, email);
 			pstmt.setString(2, pw);
 			pstmt.setString(3, phone);
-			pstmt.setString(4, local);
+			pstmt.setString(4, tendency);
 			pstmt.setString(5, name);
 			pstmt.executeUpdate();
 		}catch(SQLException e){
@@ -131,14 +131,14 @@ public class MemberDAO{
 	public static void updateMember(MemberBean mb) throws SQLException{
 		Connection con =  null;
 		PreparedStatement pstmt = null;		
-		String query = "UPDATE MEMBER SET PW = ?, PHONE = ?, LOCAL = ? WHERE MEMBER_NUM = ?";
+		String query = "UPDATE MEMBER SET PW = ?, PHONE = ?, TENDENCY = ? WHERE MEMBER_NUM = ?";
 		
 		try{		
 		    con = source.getConnection();					
 		    pstmt = con.prepareStatement(query);
 		    pstmt.setString(1,mb.getPw());
 		    pstmt.setString(2,mb.getPhone());		
-		    pstmt.setString(3,mb.getLocal());
+		    pstmt.setString(3,mb.getTendency());
 		    pstmt.setInt(4,mb.getMemberNum());
 		    pstmt.executeQuery();
 		}catch(SQLException e){

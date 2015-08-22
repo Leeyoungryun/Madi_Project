@@ -32,11 +32,11 @@ public class Member extends HttpServlet {
 			String pw = request.getParameter("password");
 			String name = request.getParameter("name");
 			String phone = request.getParameter("phone");
-			String local = request.getParameter("local");
+			String tendency = request.getParameter("tendency");
 			
 			try{
 				if((request.getParameter("password")).equals(request.getParameter("password2"))){
-					MemberBean member = MemberDAO.joinMember(email, pw, name, phone, local);
+					MemberBean member = MemberDAO.joinMember(email, pw, name, phone, tendency);
 					HttpSession session = request.getSession();
 					response.sendRedirect("login/login.jsp");
 				}else{
@@ -51,7 +51,7 @@ public class Member extends HttpServlet {
 			MemberBean mb = (MemberBean)session.getAttribute("member");		
 			mb.setPw(request.getParameter("pw").trim());
 			mb.setPhone(request.getParameter("phone").trim());	
-			mb.setLocal(request.getParameter("local").trim());
+			mb.setTendency(request.getParameter("tendency").trim());
 			
 			try{		
 				if((request.getParameter("pw")).equals(request.getParameter("pw2"))){
