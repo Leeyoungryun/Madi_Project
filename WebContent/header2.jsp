@@ -13,12 +13,12 @@
     <div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <a href="../" class="navbar-brand">Madi</a>
+          <a href="<%=request.getContextPath()%>/index.jsp" class="navbar-brand">Madi</a>
         </div>
         <div class="navbar-collapse collapse" id="navbar-main">
           <ul class="nav navbar-nav">
             <li>
-              <a href="<%=request.getContextPath()%>/index.jsp">home</a>
+              <a href="<%=request.getContextPath()%>/write.jsp">write</a>
             </li>
             <li>
               <a href="<%=request.getContextPath()%>/list.jsp">memo</a>

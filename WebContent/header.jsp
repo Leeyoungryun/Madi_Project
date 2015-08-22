@@ -13,17 +13,9 @@
     <div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <a href="../" class="navbar-brand">Madi</a>
+          <a href="<%=request.getContextPath()%>/index.jsp" class="navbar-brand">Madi</a>
         </div>
         <div class="navbar-collapse collapse" id="navbar-main">
-          <ul class="nav navbar-nav">
-            <li>
-              <a href="../help/">home</a>
-            </li>
-            <li>
-              <a href="http://news.bootswatch.com">memo</a>
-            </li>
-          </ul>
 
           <ul class="nav navbar-nav navbar-right">
             <li><a href="<%=request.getContextPath()%>/login/login.jsp" target="_blank">login</a></li>
