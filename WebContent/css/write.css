@@ -121,7 +121,7 @@ body {
   background: #fc5938;
 }
 .btn.btn-quaternary {
-  background: rgba(31, 167, 249, 0.9);
+  background: #2c80e0;
   color: #fff;
 }
 .btn.btn-quaternary:hover, .btn.btn-quaternary.active {
@@ -625,4 +625,23 @@ footer {
 
 .icolor{
   color: #A0A0A0;
+}
+
+.picBtn{
+  background-color: transparent;
+  border:none;
+  font-size: 15px;
+  color: #E8E8E8;
+}
+
+.picBtn:hover, .picBtn.active {
+  color: #35c9a4;
+}
+
+.textback{
+  background-color: rgba(82, 189, 236, 0.1);
+  border-radius: 10px;
+  font-size: 25px;
+  font-weight: 300;
+  color: #888888;
 }

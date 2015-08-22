@@ -7,6 +7,7 @@
 	</head>
 	<body>
         <br><br><br>
+        <a style="text-decoration: none;" href="<%=request.getContextPath()%>/login/login.jsp"><p style="margin-top: 10px; font-size:60px"># Madi</p></a>
         <div class="TAPEmain sideA">
 
         	<div class="TAPEscrew" id="TAPEscrew01"></div>
@@ -49,6 +50,5 @@
                 <div class="TAPEhole" id="TAPEhole02"></div>
         	</div>
         </div>
-		<a style="text-decoration: none;" href="<%=request.getContextPath()%>/login/login.jsp"><p style="margin-top: 10px;"># Madi</p></a>
 	</body>
 </html>

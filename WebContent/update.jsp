@@ -28,7 +28,7 @@
 		</c:choose>
 		<div class="size">
 		    <article class="post post-blog">
-		      <p class="title">Update</p><br>
+		      <br><br><p class="title">Update</p><br>
 		      <img src="http://photo.toast.com/aaaadc/abc/head.png"/>
 		      <div class="details">    
 			      <form name="updateForm" method="post" action="memo.do" onSubmit="return checkValid()">
@@ -40,8 +40,8 @@
 					<div class="meta">
 			          <p><i class="fa fa-user icolor"></i> Written by <strong>${member.name}</strong></p>
 			        </div>
-			
-					<p><i class="fa fa-pencil-square-o icolor"></i></p><textarea name="content" cols="30" rows="5" class="no-line"><%=resultContent.getContent()%></textarea><br><br><br>
+			        
+			        <textarea name="content" cols="48" rows="4" class="no-line textback"><%=resultContent.getContent()%></textarea><br><br><br>
 		      		<i class="fa fa-tags icolor"></i> <input type="text" class="hash no-line" value="#" readonly><input type="text" name="hashtag1" class="btn no-line width" value="<%=resultContent.getHashTag1()%>" readonly>&nbsp;&nbsp;
 		        	<input type="text" class="hash no-line" value="#" readonly><input type="text" name="hashtag2" class="btn no-line width" value="<%=resultContent.getHashTag2()%>" readonly>&nbsp;&nbsp;
 		        	<input type="text" class="hash no-line" value="#" readonly><input type="text" name="hashtag3" class="btn no-line width" value="<%=resultContent.getHashTag3()%>" readonly><br><br>

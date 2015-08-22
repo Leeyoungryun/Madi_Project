@@ -4,7 +4,7 @@
 <jsp:useBean id="resultMusic" class="model.domain.MusicBean" scope="request" /> 
 
 <!DOCTYPE html>
-<html >
+<html style="background: #F9F9F9;">
   <head>
     <meta charset="UTF-8">
     <title>노래추천</title>
@@ -22,7 +22,7 @@
 		</c:otherwise>
 	</c:choose>
 	<br><br>
-	<p class="title">Music</p></a>
+	<p class="title" style="color:#e95353">Music</p>
 	
 	<div class="TAPEmain sideA">
         	<div class="TAPEscrew" id="TAPEscrew01"></div>
@@ -65,12 +65,13 @@
 			  <div class="audioplayer__controls">
 			    <a href="#" class="audioplayer__play-pause"></a>
 			    <div class="audioplayer__track-info">
-			      <div class="audioplayer__title" title="Is This Love">Is This Love</div>
-			      <div class="audioplayer__artist" title="Bob Marley">Bob Marley</div>
+			      <div class="audioplayer__title" title=""></div>
+			      <div class="audioplayer__artist" title=""></div>
 			    </div>
 			  </div>
 			  <audio src="<%= resultMusic.getUrl() %>" volume="75" data-title="<%= resultMusic.getTitle() %>" data-artist="<%= resultMusic.getSinger() %>"></audio>
-			</div>
+			</div><br><br><br><br>
+			<center>
 			<form name="save" method="post" action="memo.do">
 				<input type="hidden" name="command" value= "save">
 				<input type="hidden" name="member" value= "<%= resultContent.getMemberNum() %>">
@@ -81,8 +82,9 @@
 				<input type="hidden" name="hashtag3" value= "<%= resultContent.getHashTag3() %>">
 				<input type="hidden" name="back" value= "<%= resultContent.getBack() %>">
 				<input type="hidden" name="musicNum" value= "<%= resultMusic.getMusicNum() %>">
-				<input type="submit" value="save">
+				<input type="submit" value="save" class="no-line btn btn-secondary">
 			</form>
+			</center>
     </div>
 	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src="js/index.js"></script>    

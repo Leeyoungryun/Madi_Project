@@ -41,7 +41,7 @@
 								<div class="actions">
 									<a href="memo.do?command=read&num=<%=memo.getMemoNum()%>" class="btn btn-secondary btn-round"><span class="icon-search"></span></a>
 								</div>
-								<h2><%=memo.getHashTag1() %> #<%=memo.getHashTag2() %> #<%=memo.getHashTag3() %></h2>
+								<h2>#<%=memo.getHashTag1() %>&nbsp;&nbsp;&nbsp;&nbsp;#<%=memo.getHashTag2() %>&nbsp;&nbsp;&nbsp;&nbsp;#<%=memo.getHashTag3() %></h2>
 								<p>music</p>
 								<div class="intents">
 									<span class="count"><i class="fa fa-calendar-check-o"></i> <%= memo.getWriteday()%></span>

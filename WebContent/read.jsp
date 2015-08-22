@@ -33,7 +33,7 @@
 	  </c:choose>
 	  <div class="size">
 		    <article class="post post-blog">
-		    <p class="title">That day</p><br>
+		    <br><br><p class="title">That day</p><br>
 		      <img src="http://photo.toast.com/aaaadc/abc/head.png"/>
 		      <div class="details">
 					<div class="meta">
@@ -49,8 +49,7 @@
 						</div>
 					<audio src="<%= resultMusic.getUrl() %>" volume="75" data-title="<%= resultMusic.getTitle() %>" data-artist="<%= resultMusic.getSinger() %>"></audio>
 					</div><br>
-					<p><i class="fa fa-pencil-square-o icolor"></i></p>
-					<p><%= resultContent.getContent()%></p>
+					<p style="font-size:25px"><%= resultContent.getContent()%></p>
 					<div class="intents">
 						<span class="count"><i class="fa fa-calendar-check-o"></i> <%= resultContent.getWriteday()%></span>
 					</div><br><br><br>
