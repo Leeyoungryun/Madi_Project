@@ -124,7 +124,7 @@ public class PhonemeTextEngine implements Serializable {
 
 			} catch (MorphException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
 		}
 		return emotions;

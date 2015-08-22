@@ -6,14 +6,14 @@ import java.util.Collections;
 
 public class Emotionform {
 	
-	public static void chooseEmotion(String[] input,String picture)
+	public static String chooseEmotion(String[] input,String picture)
 	{
 		String[] Emotions={input[0],input[1],input[2]};
 		String sentence=input[3];
 	
 	
 		ArrayList<String> FinalEmotions=new ArrayList<String>();
-		ArrayList<Integer> FinalbyInt=new ArrayList<Integer>();
+	
 		boolean sameWithSentence= false;//합친문장의 감정의 각각의 감정과 겹치는지
 		boolean sameWithPicture= false;
 		
@@ -35,7 +35,7 @@ public class Emotionform {
 		
 		if(FinalEmotions.size()<3)
 		{
-			if(FinalEmotions.size()==1 && sameWithSentence==true)
+			if(FinalEmotions.size()==1)
 			{
 				FinalEmotions.add(sentence);		
 			}	
@@ -58,43 +58,50 @@ public class Emotionform {
 				}
 			
 			
-			FinalbyInt=sortEmotions(FinalEmotions);
-			while(FinalbyInt.size()<3)
+			
+			while(FinalEmotions.size()<3)
 			{
-				FinalbyInt.add(7);
+				FinalEmotions.add("natural");
 			}
 		
 		}
+
+		
+		FinalEmotions=sortEmotions(FinalEmotions);
 		
 		StringBuilder aa = new StringBuilder();
-		for(int i=0; i<FinalbyInt.size() ;i++){
-		aa.append(FinalbyInt.get(i));
+		for(int i=0; i<FinalEmotions.size() ;i++){
+		aa.append(FinalEmotions.get(i));
 		}
 		System.out.println(aa.toString());
+		
+		return aa.toString();
 		
 
 	}
 	
-	public static ArrayList<Integer> sortEmotions(ArrayList<String> Emotions)
+	public static ArrayList<String> sortEmotions(ArrayList<String> Emotions)
 	{
-		ArrayList<Integer> int_result = new ArrayList<Integer>();
+		
+		ArrayList<String> int_result = new ArrayList<String>();
 		for(int i=0; i<Emotions.size(); i++ ){
+			Emotions.get(i).trim();
 			if(Emotions.get(i)=="love")
-				int_result.add(0);
+				int_result.add("0");
 			else if(Emotions.get(i)=="happy")
-				int_result.add(1);
+				int_result.add("1");
 			else if(Emotions.get(i)=="hate")
-				int_result.add(2);
+				int_result.add("2");
 			else if(Emotions.get(i)=="sad")
-				int_result.add(3);
+				int_result.add("3");
 			else if(Emotions.get(i)=="angry")
-				int_result.add(4);
+				int_result.add("4");
 			else if(Emotions.get(i)=="excite")
-				int_result.add(5);
+				int_result.add("5");
 			else if(Emotions.get(i)=="expect")
-				int_result.add(6);
+				int_result.add("6");
 			else if(Emotions.get(i)=="natural")
-				int_result.add(7);
+				int_result.add("7");
 		}
 		
 		

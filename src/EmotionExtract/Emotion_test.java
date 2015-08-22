@@ -15,7 +15,8 @@ public class Emotion_test {
 		// TODO Auto-generated method stub
 
 		String[] emotion = new String[4] ;
-		String[] str ={"눈물을","참을수없어","ㅠㅠ",""};
+		
+		String[] str ={"흔들어","쉐낏","쉐낏",""};
 		StringBuilder sentence= new StringBuilder();
 		for(int i=0; i<str.length; i++)
 		{
@@ -25,13 +26,12 @@ public class Emotion_test {
 		str[3]=sentence.toString();
 		
 		
-		
 		String picture = "happy";
 	
 
 		try {
 			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(
-					"data/0821_tested.dat"));
+					"data/0725.dat"));
 
 			PhonemeTextEngine textEngine = (PhonemeTextEngine) ois
 					.readObject();
@@ -49,6 +49,7 @@ public class Emotion_test {
 			System.out.println();
 			
 			for (int i = 0; i < emotion.length; i++) {
+				//System.out.println("ss");
 				System.out.println(emotion[i].toString());
 			}
 
@@ -60,10 +61,10 @@ public class Emotion_test {
 			//e.printStackTrace();
 		}
 		
-		Emotionform.chooseEmotion(emotion,picture);
+		String aa=Emotionform.chooseEmotion(emotion,picture);
 		
+		System.out.println(aa);
 		
-
 	}
 
 }
