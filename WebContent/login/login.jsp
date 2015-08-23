@@ -11,7 +11,14 @@
 		}
 		</script>
 	</head>
-	<body class="align">	
+	<body class="align">
+	  <c:choose>
+  		<c:when test="${empty member}">
+		</c:when>
+		<c:otherwise>
+			<% response.sendRedirect("../write.jsp"); %>
+		</c:otherwise>
+	  </c:choose>
 	  <div class="site__container">
 	    <div class="grid__container">
 	      <p style="margin-top: 0px; margin-bottom: 30px;">Login</p>

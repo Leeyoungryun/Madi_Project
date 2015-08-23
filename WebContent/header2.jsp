@@ -21,7 +21,7 @@
               <a href="<%=request.getContextPath()%>/write.jsp">write</a>
             </li>
             <li>
-              <a href="<%=request.getContextPath()%>/list.jsp">memo</a>
+              <a href="<%=request.getContextPath()%>/memo.do">memo</a>
             </li>
           </ul>
 
