@@ -14,8 +14,6 @@ import java.util.List;
 
 import org.apache.lucene.analysis.ko.morph.MorphException;
 
-import KoreanAnalyzer.TextMorphAnalyzer;
-import KoreanAnalyzer.WordSegmentAnalyze;
 import Phoneme.PhonemeExtractor;
 
 /**
@@ -61,54 +59,28 @@ public class extractword {
 		 // 띄어쓰기
 		
 		System.out.println(segmented);
-		String temp2 = k_analyzer.morphAnalyze(segmented).toString();
 		String[] verbs = k_analyzer.extractVerb(segmented);// 동사 추출
 		String temp = "";
-		String str = "";
+		String first = "";
+		String second = "";
 		String[] guide = k_analyzer.guideWord(segmented); // 색인 추출
 		String[] extractedWord= new String[2];
 		for(int i=0; i<guide.length; i++){ 
 		}
 		
-		/**
-		 * 특징 1번째 명사
-		 */
-		String[] temp3 = temp2.split(" ");
-		String[] temp4 = new String[4000];
-		
-		int wordcount = 0;
-		for (String t : temp3) {
-			// System.out.println(t);
-			String[] word = t.split(",");
-			for (String w : word) {
-				boolean check = false;
-				for (int i = 0; i < w.length(); i++) {
-					if (w.charAt(i) == 'N') {
-						check = true;
-						break;
-					}
-				}
-				if (check)
-					temp4[wordcount] = w;
-				// System.out.println(w);
-				wordcount++;
-				// System.out.println(wordcount);
-			}
-		}
-
 
 		/**
-		 * 특징 2번째 동사
+		 * 특징 1번째 동사
 		 */
 		
 		if (verbs.length == 0) { // 동사가 없을때
-			str = str + guide[guide.length - 1]; // 색인 마지막 인덱스에 있는 단어 추출
+			first = first + guide[guide.length - 1]; // 색인 마지막 인덱스에 있는 단어를 동사로 추출
 			// System.out.println("===동사가 없을때===" + str);
 		} else { // 동사가 있을때
 			for (int i = 0; i < verbs.length; i++) {
 				if (verbs[i] != null) { // 동사값이 NULL이 아닐때
 					if (verbs[i].matches(".*다")) { // 동사가 "다"로 끝나면
-						 str = temp + verbs[i]; // temp에 동사를 합해서 str에 넣어준다
+						first = temp + verbs[i]; // temp에 동사를 합해서 str에 넣어준다
 						// System.out.println("===동사가 다 끝날때===" + str);
 						//str = verbs[i];
 						temp = ""; // temp 초기화
@@ -124,28 +96,25 @@ public class extractword {
 		}
 		
 		/**
-		 * 특징 3번째 색인어
+		 * 특징 2번째 색인어
 		 */
 
-		String textResult = "";
-
-	
 		if (input != null) {
 			if (guide.length > 0) {
-				textResult = guide[guide.length / 2];
+				second = guide[guide.length / 2];
 			}
 		}
 		
 		
-		if (str.length() == 0) {
+		if (first.length() == 0) {
 			if (guide.length != 0) {
-				str = guide[guide.length-1];
+				first = guide[guide.length-1];
 			} else {
-				str = guide[0];
+				first = guide[0];
 			}
 		}
-		extractedWord[0]=textResult;
-		extractedWord[1]=str;
+		extractedWord[0]=second;
+		extractedWord[1]=first;
 		
 		System.out.println(extractedWord[0]+""+extractedWord[1]);
 		//.out.println(extractedWord[1]);
@@ -166,7 +135,6 @@ public class extractword {
 	public static void splitWithVerb(String input) throws MorphException 
 	{
 		System.out.println(input);
-		String[] sentences=null;
 		String[] verbs= k_analyzer.extractVerb(input);		
 		String[] guided = k_analyzer.guideWord(input); 
 		
