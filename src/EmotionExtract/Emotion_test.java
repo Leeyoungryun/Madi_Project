@@ -16,7 +16,7 @@ public class Emotion_test {
 
 		String[] emotion = new String[4] ;
 		
-		String[] str ={"흔들어","쉐낏","쉐낏",""};
+		String[] str ={"나는","나는","나는",""};
 		StringBuilder sentence= new StringBuilder();
 		for(int i=0; i<str.length; i++)
 		{
@@ -31,7 +31,7 @@ public class Emotion_test {
 
 		try {
 			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(
-					"data/0725.dat"));
+					"C:/project/Madi_Project/data/0725_jinhee.dat"));
 
 			PhonemeTextEngine textEngine = (PhonemeTextEngine) ois
 					.readObject();

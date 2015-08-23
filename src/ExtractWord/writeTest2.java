@@ -53,6 +53,7 @@ public class writeTest2 {
 		}
 		
 		String result = Emotionform2.chooseEmotion(emotion, picture);
+		//System.out.println("사진"+picture);
 		System.out.println("result"+result);
 		return result;
 	}
