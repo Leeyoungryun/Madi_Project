@@ -37,19 +37,21 @@ public class MusicDAO {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-
-		if(tendency.equals("yes")){
+		String field = "EMOTION";
+		
+ 		if(tendency.equals("yes")){
+			field = "EMOTION2";
 			//33 3~7 /22 2~7
 			if(emotion.equals("333")||emotion.equals("377")){
 				emotion = "111";
 			}else if(emotion.equals("222")||emotion.equals("277")){
 				emotion = "555";
 			}
-		}
+ 		}
 		
 		try{
 			con = source.getConnection();
-			pstmt = con.prepareStatement("SELECT * FROM (SELECT * FROM MUSIC WHERE = ? ORDER BY DBMS_RANDOM.VALUE) WHERE ROWNUM = 1");
+			pstmt = con.prepareStatement("SELECT * FROM (SELECT * FROM MUSIC WHERE EMOTION = ? ORDER BY DBMS_RANDOM.VALUE) WHERE ROWNUM = 1");
 			pstmt.setString(1, emotion);
 			rset = pstmt.executeQuery();
 			if (rset.next()) {
