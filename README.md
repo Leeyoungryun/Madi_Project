@@ -6,7 +6,7 @@
 
 팀원 : 최인영, 이진희, 이영륜
 
-팀한마디 : Coders makedth "Hello world"
+팀한마디 : Coders maketh "Hello world"
 
 프로젝트명 : Madi
 
