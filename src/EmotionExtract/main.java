@@ -27,7 +27,7 @@ public class main {
 
 		try {
 			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(
-					"data/Madi_v.01.dat"));
+					"C:/project/Madi_Project/data/Madi.dat"));
 
 			PhonemeTextEngine textEngine = (PhonemeTextEngine) ois.readObject();
 			ois.close();
