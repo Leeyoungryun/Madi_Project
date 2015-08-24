@@ -9,13 +9,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import wordExtractor.writeTest2;
-import emotionExtractor.TendencyCheck;
 import model.dao.MemoDAO;
 import model.dao.MusicDAO;
 import model.domain.MemberBean;
 import model.domain.MemoBean;
 import model.domain.MusicBean;
+import emotionExtractor.EmotionExtractor;
+import emotionExtractor.TendencyCheck;
 
  
  public class Memo extends javax.servlet.http.HttpServlet {
@@ -63,7 +63,7 @@ import model.domain.MusicBean;
 			String[] hash = {hashTag1, hashTag2, hashTag3, ""};
 			HttpSession session = request.getSession();
 			MemberBean bean = (MemberBean) session.getAttribute("member");
-			String emotionResult = writeTest2.test(hash, back);
+			String emotionResult = EmotionExtractor.test(hash, back);
 
 			if(emotionResult!=null){
 				int memberNum = Integer.parseInt(member);

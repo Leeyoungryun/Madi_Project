@@ -1,4 +1,4 @@
-package wordExtractor;
+package emotionExtractor;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -10,7 +10,7 @@ import Phoneme.PhonemeTextEngine;
 import wordExtractor.KeyWordExtractor;
 import emotionExtractor.EmotionChooser;
 
-public class writeTest2 {
+public class EmotionExtractor {
 	public static String test(String[] str, String back) {
 		String[] emotion = new String[4] ;
 
@@ -52,7 +52,7 @@ public class writeTest2 {
 			//e.printStackTrace();
 		}
 		
-		String result = Emotionform2.chooseEmotion(emotion, picture);
+		String result = EmotionSelector.chooseEmotion(emotion, picture);
 		return result;
 	}
 }
