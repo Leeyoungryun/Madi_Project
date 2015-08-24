@@ -43,18 +43,18 @@
 	      <img id=head src="http://photo.toast.com/aaaadc/abc/head.png"/>
 	      <div class="details">
 	      	  <center>
-	      	  <button class="picBtn" onclick="bgChange('happy');">¡Ü</button>
-		      <button class="picBtn" onclick="bgChange('angry');">¡Ü</button>
-		      <button class="picBtn" onclick="bgChange('sad');">¡Ü</button>
-		      <button class="picBtn" onclick="bgChange('excite');">¡Ü</button>
-		      <button class="picBtn" onclick="bgChange('love');">¡Ü</button>
+	      	  <button class="picBtn" onclick="bgChange('love');">¡Ü</button>
+		      <button class="picBtn" onclick="bgChange('happy');">¡Ü</button>
 		      <button class="picBtn" onclick="bgChange('hate');">¡Ü</button>
+		      <button class="picBtn" onclick="bgChange('sad');">¡Ü</button>
+		      <button class="picBtn" onclick="bgChange('angry');">¡Ü</button>
+		      <button class="picBtn" onclick="bgChange('excite');">¡Ü</button>
 		      <button class="picBtn" onclick="bgChange('expect');">¡Ü</button>
 		      </center>
 		      <form name="writeForm" method="post" action="memo.do">
 				<input type="hidden" name="command" value="write">
 				<input type="hidden" name="member" size="30" value="${member.memberNum}">
-				<input type="hidden" id="back" name="back">
+				<input type="hidden" id="back" name="back" value="natural">
 				<input type="hidden" name="title" value="title">
 				<div class="meta">
 		          <p><i class="fa fa-user icolor"></i> Written by <strong>${member.name}</strong></p>

@@ -24,7 +24,7 @@ public class writeTest2 {
 	
 		try {
 			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(
-					"C:/project/Madi_Project/data/0725_jinhee.dat"));
+					"C:/project/Madi_Project/data/Madi.dat"));
 
 			PhonemeTextEngine textEngine = (PhonemeTextEngine) ois
 					.readObject();
