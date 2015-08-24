@@ -10,7 +10,6 @@ import org.apache.lucene.analysis.ko.morph.MorphException;
 
 import ExtractWord.extractword;
 
-
 public class PhonemeTextEngine implements Serializable {
 
 	/**
@@ -25,13 +24,14 @@ public class PhonemeTextEngine implements Serializable {
 	 * 
 	 * @param parent
 	 *            호출된 객체 레퍼런스(일반적으로 this)
-	 * @param 학습된 classifier
-	 *          
+	 * @param 학습된
+	 *            classifier
+	 * 
 	 * @return 학습된 classifier를 포함하는 PhonemeTextEngine 객체
 	 * @throws IOException
 	 */
-	public static PhonemeTextEngine getLearnedInstance(PhonemeKernelClassifier classifier)
-			throws IOException {
+	public static PhonemeTextEngine getLearnedInstance(
+			PhonemeKernelClassifier classifier) throws IOException {
 		PhonemeTextEngine textEmotion = new PhonemeTextEngine();
 
 		textEmotion.classifier = classifier;
@@ -45,7 +45,6 @@ public class PhonemeTextEngine implements Serializable {
 		this.emotion = new String();
 	}
 
-
 	/**
 	 * 텍스트를 입력 받아 감성을 추출
 	 * 
@@ -56,57 +55,53 @@ public class PhonemeTextEngine implements Serializable {
 	 */
 	public String putData(String string) throws MorphException {
 		String emotion = "";
-	
-		
-		extractword extract=new extractword();
-		String[] extracted=extract.extracting(string);
-		// 단어추출알고리즘
-		int result = classifier.classifyEmotion(extracted[0] + "\t" + extracted[1]);
-		//System.out.println(result);
-		
 
-		switch(result)
-		{
-			case 0 :
-			emotion="happy";
+		extractword extract = new extractword();
+		String[] extracted = extract.extracting(string);
+		// 단어추출알고리즘
+		int result = classifier.classifyEmotion(extracted[0] + "\t"
+				+ extracted[1]);
+		// System.out.println(result);
+
+		switch (result) {
+		case 0:
+			emotion = "happy";
 			break;
-			case 1: 
-				emotion ="angry";
-				break;
-			case 2:
-				emotion ="sad";
-				break;
-			case 3:
-				emotion ="excite";
-				break;
-			case 4:
-				emotion ="love";
-				break;
-			case 5:
-				emotion ="hate";
-				break;
-			case 6:
-				emotion ="expect";
-				break;
-			case 7:
-				emotion ="natural";
-				break;
-				
+		case 1:
+			emotion = "angry";
+			break;
+		case 2:
+			emotion = "sad";
+			break;
+		case 3:
+			emotion = "excite";
+			break;
+		case 4:
+			emotion = "love";
+			break;
+		case 5:
+			emotion = "hate";
+			break;
+		case 6:
+			emotion = "expect";
+			break;
+		case 7:
+			emotion = "natural";
+			break;
+
 		}
 		return emotion;
 	}
-	
-
 
 	/**
 	 * 감성 추출(7가지 감성)
 	 * 
 	 * @return String 타입의 감성
-	 * @throws MorphException 
+	 * @throws MorphException
 	 */
 	public String getEmotion(String string) throws MorphException {
 		emotion = putData(string);
-		
+
 		return emotion;
 	}
 
@@ -124,11 +119,10 @@ public class PhonemeTextEngine implements Serializable {
 
 			} catch (MorphException e) {
 				// TODO Auto-generated catch block
-				//e.printStackTrace();
+				// e.printStackTrace();
 			}
 		}
 		return emotions;
 	}
-
 
 }

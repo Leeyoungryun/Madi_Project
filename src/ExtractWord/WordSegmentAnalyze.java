@@ -1,4 +1,4 @@
-package KoreanAnalyzer;
+package ExtractWord;
 
 import java.util.List;
 
