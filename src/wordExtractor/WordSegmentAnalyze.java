@@ -1,4 +1,4 @@
-package ExtractWord;
+package wordExtractor;
 
 import java.util.List;
 

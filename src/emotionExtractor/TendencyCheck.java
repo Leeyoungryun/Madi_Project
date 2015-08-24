@@ -1,4 +1,4 @@
-package EmotionExtract;
+package emotionExtractor;
 
 public class TendencyCheck {
 	public static String result(String tendency, String emotion){

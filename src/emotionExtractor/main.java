@@ -1,4 +1,4 @@
-package EmotionExtract;
+package emotionExtractor;
 
 import java.io.FileInputStream;
 import java.io.IOException;

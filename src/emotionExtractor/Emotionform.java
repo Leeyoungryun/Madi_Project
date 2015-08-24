@@ -1,4 +1,4 @@
-package EmotionExtract;
+package emotionExtractor;
 
 import java.util.ArrayList;
 import java.util.Collections;

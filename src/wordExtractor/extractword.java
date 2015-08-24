@@ -1,4 +1,4 @@
-package ExtractWord;
+package wordExtractor;
 
 import java.io.BufferedReader;
 import java.io.File;

@@ -9,13 +9,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import wordExtractor.writeTest2;
+import emotionExtractor.TendencyCheck;
 import model.dao.MemoDAO;
 import model.dao.MusicDAO;
 import model.domain.MemberBean;
 import model.domain.MemoBean;
 import model.domain.MusicBean;
-import EmotionExtract.TendencyCheck;
-import ExtractWord.writeTest2;
 
  
  public class Memo extends javax.servlet.http.HttpServlet {

@@ -8,7 +8,7 @@ import java.io.*;
 
 import org.apache.lucene.analysis.ko.morph.MorphException;
 
-import ExtractWord.extractword;
+import wordExtractor.extractword;
 
 public class PhonemeTextEngine implements Serializable {
 

@@ -1,4 +1,4 @@
-package ExtractWord;
+package wordExtractor;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -6,9 +6,9 @@ import java.io.ObjectInputStream;
 
 import org.apache.lucene.analysis.ko.morph.MorphException;
 
-import EmotionExtract.Emotionform;
-import ExtractWord.extractword;
 import Phoneme.PhonemeTextEngine;
+import wordExtractor.extractword;
+import emotionExtractor.Emotionform;
 
 public class writeTest2 {
 	public static String test(String[] str, String back) {
