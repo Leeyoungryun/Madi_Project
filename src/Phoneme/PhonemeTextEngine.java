@@ -56,8 +56,7 @@ public class PhonemeTextEngine implements Serializable {
 	public String putData(String string) throws MorphException {
 		String emotion = "";
 
-		KeyWordExtractor extract = new KeyWordExtractor();
-		String[] extracted = extract.extracting(string);
+		String[] extracted = KeyWordExtractor.extracting(string);
 		// 단어추출알고리즘
 		int result = classifier.classifyEmotion(extracted[0] + "\t"
 				+ extracted[1]);

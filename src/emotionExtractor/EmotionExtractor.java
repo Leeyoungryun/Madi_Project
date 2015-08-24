@@ -4,10 +4,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 
-import org.apache.lucene.analysis.ko.morph.MorphException;
-
 import Phoneme.PhonemeTextEngine;
-import wordExtractor.KeyWordExtractor;
 
 
 public class EmotionExtractor {

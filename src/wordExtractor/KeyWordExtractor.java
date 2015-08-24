@@ -3,18 +3,12 @@ package wordExtractor;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.apache.lucene.analysis.ko.morph.MorphException;
-
-import Phoneme.PhonemeExtractor;
 
 /**
  * 텍스트를 입력 받아 키워드를 추출
@@ -131,12 +125,12 @@ public class KeyWordExtractor {
 	 *            띄어쓰기가 된 감성 분석을 원하는 텍스트
 	 * @throws MorphException
 	 */
-	
+	/*
 	public static void splitWithVerb(String input) throws MorphException 
 	{
 		System.out.println(input);
 		String[] verbs= k_analyzer.extractVerb(input);		
-		String[] guided = k_analyzer.guideWord(input); 
+		//String[] guided = k_analyzer.guideWord(input); 
 		
 		System.out.println(verbs.length);
 
@@ -151,8 +145,7 @@ public class KeyWordExtractor {
 			phonemeVerbs[i]=PhonemeExtractor.split(verbs[i]);
 			System.out.println(phonemeVerbs[i]);
 		}
-		
-		/*동사의 인덱스찾기*/
+	
 		
 		
 		for(int i=0; i<phonemeVerbs.length; i++){
@@ -164,7 +157,7 @@ public class KeyWordExtractor {
 		}
 	
 	}
-	
+	*/
 	
 	
 	public static void extractFromTxt(String dataPath) throws MorphException, IOException 
