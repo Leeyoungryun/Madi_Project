@@ -27,7 +27,7 @@ public class main {
 
 		try {
 			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(
-					"C:/project/Madi_Project/data/Madi.dat"));
+					"C:/Users/inyoung/git/Madi_Project/data/Madi.dat"));
 
 			PhonemeTextEngine textEngine = (PhonemeTextEngine) ois.readObject();
 			ois.close();
@@ -55,7 +55,7 @@ public class main {
 			// e.printStackTrace();
 		}
 
-		String aa = EmotionChooser.choose3Emotions(emotion, picture);
+		String aa = EmotionSelector.choose3Emotions(emotion, picture);
 
 		System.out.println(aa);
 

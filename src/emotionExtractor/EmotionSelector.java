@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class EmotionSelector {
-	public static String chooseEmotion(String[] input,String picture){
+	public static String choose3Emotions(String[] input,String picture){
 		String[] Emotions={input[0],input[1],input[2]};
 		String sentence=input[3];
 		

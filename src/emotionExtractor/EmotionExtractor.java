@@ -8,7 +8,7 @@ import org.apache.lucene.analysis.ko.morph.MorphException;
 
 import Phoneme.PhonemeTextEngine;
 import wordExtractor.KeyWordExtractor;
-import emotionExtractor.EmotionChooser;
+
 
 public class EmotionExtractor {
 	public static String test(String[] str, String back) {
@@ -52,7 +52,7 @@ public class EmotionExtractor {
 			//e.printStackTrace();
 		}
 		
-		String result = EmotionSelector.chooseEmotion(emotion, picture);
+		String result = EmotionSelector.choose3Emotions(emotion, picture);
 		return result;
 	}
 }
