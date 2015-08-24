@@ -12,27 +12,38 @@ import wordExtractor.KeyWordExtractor;
 
 public class EmotionExtractor {
 	public static String test(String[] str, String back) {
-		String[] emotion = new String[4] ;
-
-		StringBuilder sentence= new StringBuilder();
-		for(int i=0; i<str.length; i++){
-			sentence.append(str[i]);
-		}
-		str[3]=sentence.toString();
 		
 		String picture = back;
+		String path ="C:/project/Madi_Project/data/Madi.dat";
+		String result=ExtractEmotions(str,picture,path);
+		
+	return result;
+
+	}
 	
+	public static String ExtractEmotions(String[] inputStrings, String picture,String path){
+		String[] emotion = new String[4];
+		StringBuilder sentence = new StringBuilder();
+		for (int i = 0; i < inputStrings.length; i++) {
+			sentence.append(inputStrings[i]);
+
+		}
+		inputStrings[3] = sentence.toString();
+
+		
+
 		try {
 			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(
-					"C:/project/Madi_Project/data/Madi.dat"));
+					path));
+
 
 			PhonemeTextEngine textEngine = (PhonemeTextEngine) ois
 					.readObject();
 			ois.close();
 			
-			for(int i=0; i<str.length; i++){
+			for(int i=0; i<inputStrings.length; i++){
 				try {
-					emotion[i] = textEngine.getEmotion(str[i]);
+					emotion[i] = textEngine.getEmotion(inputStrings[i]);
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -54,5 +65,11 @@ public class EmotionExtractor {
 		
 		String result = EmotionSelector.choose3Emotions(emotion, picture);
 		return result;
+		
 	}
+	
+	
+	
+	
+	
 }
