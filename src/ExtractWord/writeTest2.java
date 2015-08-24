@@ -38,12 +38,12 @@ public class writeTest2 {
 					e.printStackTrace();
 				}
 			}
-			System.out.println();
-			System.out.println(emotion.length);
-			for (int i = 0; i < emotion.length; i++) {
-				System.out.println(emotion[i].toString());
+			System.out.println("** 감정 결과 **");
+			for (int i = 0; i < emotion.length-1; i++) {
+				System.out.println((i+1) + ". tag"+ (i+1) + " : "+emotion[i].toString());
 			}
-
+			System.out.println("4. tag1+tag2+tag3 : " + emotion[3].toString());
+			System.out.println("5. background : " + picture);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
@@ -53,8 +53,6 @@ public class writeTest2 {
 		}
 		
 		String result = Emotionform2.chooseEmotion(emotion, picture);
-		//System.out.println("사진"+picture);
-		System.out.println("result"+result);
 		return result;
 	}
 }

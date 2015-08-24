@@ -54,8 +54,8 @@
 	        </div>
 	        
 	        <div class="form__field">
-	          <label class="fontawesome-map-marker"><span class="hidden">Tendency</span></label>
-	          <input type="text" name="tendency" class="form__input" placeholder="Tendency" required>
+	          <label class="fontawesome-heart"><span class="hidden">Tendency</span></label>
+	          <div class="form__input check">슬플 때 밝은 노래를 듣고싶나요?&nbsp;&nbsp;<input type="checkbox" name="tendency" value="yes"></div>
 	        </div>
 	        <br><br>        
 	        <div class="form__field">

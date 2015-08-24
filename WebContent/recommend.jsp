@@ -82,7 +82,7 @@
 				<input type="hidden" name="hashtag3" value= "<%= resultContent.getHashTag3() %>">
 				<input type="hidden" name="back" value= "<%= resultContent.getBack() %>">
 				<input type="hidden" name="musicNum" value= "<%= resultMusic.getMusicNum() %>">
-				<input type="submit" value="save" class="no-line btn btn-secondary">
+				<input type="submit" value="save" class="no-line btn btn-secondary" style="width: 278px; height: 42px; font-size: 15px; ">
 			</form>
 			</center>
     </div>

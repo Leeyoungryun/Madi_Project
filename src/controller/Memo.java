@@ -1,3 +1,4 @@
+
 package controller;
 
 import java.io.IOException;
@@ -13,6 +14,7 @@ import model.dao.MusicDAO;
 import model.domain.MemberBean;
 import model.domain.MemoBean;
 import model.domain.MusicBean;
+import EmotionExtract.TendencyCheck;
 import ExtractWord.writeTest;
 import ExtractWord.writeTest2;
 
@@ -67,7 +69,8 @@ import ExtractWord.writeTest2;
 			if(emotionResult!=null){
 				int memberNum = Integer.parseInt(member);
 				MemoBean gContent = new MemoBean(memberNum, title, content, hashTag1, hashTag2, hashTag3, back);
-				MusicBean music = MusicDAO.selectMusic(emotionResult, bean.getTendency());
+				emotionResult = TendencyCheck.result(bean.getTendency(), emotionResult);
+				MusicBean music = MusicDAO.selectMusic(emotionResult);
 				if(music == null){
 					response.sendRedirect("error.jsp");
 					return;						
@@ -129,7 +132,6 @@ import ExtractWord.writeTest2;
 			String member = request.getParameter("member");
 			String title = request.getParameter("title");			
 			String content = request.getParameter("content");
-			//System.out.println(content);
 			
 			if(strNum == null || strNum.trim().length() == 0 ||
 				content == null || content.trim().length() == 0 ){

@@ -107,7 +107,7 @@ body {
   background: #94cd5a;
 }
 .btn.btn-secondary {
-  background: rgba(31, 167, 249, 0.9);
+  background: rgb(233, 83, 83);
   color: #fff;
 }
 .btn.btn-secondary:hover, .btn.btn-secondary.active {

@@ -88,9 +88,9 @@ public class MemberDAO{
 			pstmt = con.prepareStatement("INSERT INTO MEMBER VALUES(SEQ_MEMBER_NUM.NEXTVAL,?,?,?,?,?)");
 			pstmt.setString(1, email);
 			pstmt.setString(2, pw);
-			pstmt.setString(3, phone);
-			pstmt.setString(4, tendency);
-			pstmt.setString(5, name);
+			pstmt.setString(3, name);
+			pstmt.setString(4, phone);
+			pstmt.setString(5, tendency);
 			pstmt.executeUpdate();
 		}catch(SQLException e){
 			e.printStackTrace();

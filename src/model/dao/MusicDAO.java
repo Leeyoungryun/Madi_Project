@@ -33,21 +33,11 @@ public class MusicDAO {
 		}
 	}
 
-	public static MusicBean selectMusic(String emotion, String tendency){
+	public static MusicBean selectMusic(String emotion){
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		String field = "EMOTION";
-		
- 		if(tendency.equals("yes")){
-			field = "EMOTION2";
-			//33 3~7 /22 2~7
-			if(emotion.equals("333")||emotion.equals("377")){
-				emotion = "111";
-			}else if(emotion.equals("222")||emotion.equals("277")){
-				emotion = "555";
-			}
- 		}
 		
 		try{
 			con = source.getConnection();

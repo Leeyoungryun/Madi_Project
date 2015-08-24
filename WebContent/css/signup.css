@@ -152,3 +152,10 @@ p{
   font-size:60px;
   text-align:center;
 }
+
+.check{
+  background-color: #3b4148;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  padding: 16px;
+}
