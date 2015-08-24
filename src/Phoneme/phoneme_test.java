@@ -15,7 +15,7 @@ public class phoneme_test {
 
 		// 데이터셋을 학습한 SVM을 파일로 저장
 		ObjectOutputStream dat = new ObjectOutputStream(new FileOutputStream(
-				"data/0725_jinhee" + ".dat"));
+				"data/Madi.dat"));
 		// ObjectOutputStream: 객체 안에 저장되어 있는 내용을 파일로 저장하거나 네트워크를 통하여 다른 곳으로
 		// 전송하기위해 사용
 		dat.writeObject(TextEmotion);
