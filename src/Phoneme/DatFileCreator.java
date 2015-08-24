@@ -4,7 +4,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 
-public class phoneme_test {
+public class DatFileCreator {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 

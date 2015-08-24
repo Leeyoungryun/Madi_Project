@@ -55,7 +55,7 @@ public class main {
 			// e.printStackTrace();
 		}
 
-		String aa = Emotionform.chooseEmotion(emotion, picture);
+		String aa = EmotionChooser.choose3Emotions(emotion, picture);
 
 		System.out.println(aa);
 

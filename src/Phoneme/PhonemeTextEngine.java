@@ -8,7 +8,7 @@ import java.io.*;
 
 import org.apache.lucene.analysis.ko.morph.MorphException;
 
-import wordExtractor.extractword;
+import wordExtractor.KeyWordExtractor;
 
 public class PhonemeTextEngine implements Serializable {
 
@@ -56,7 +56,7 @@ public class PhonemeTextEngine implements Serializable {
 	public String putData(String string) throws MorphException {
 		String emotion = "";
 
-		extractword extract = new extractword();
+		KeyWordExtractor extract = new KeyWordExtractor();
 		String[] extracted = extract.extracting(string);
 		// 단어추출알고리즘
 		int result = classifier.classifyEmotion(extracted[0] + "\t"

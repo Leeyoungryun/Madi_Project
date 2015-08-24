@@ -3,9 +3,9 @@ package emotionExtractor;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Emotionform {
+public class EmotionChooser {
 
-	public static String chooseEmotion(String[] input, String picture) {
+	public static String choose3Emotions(String[] input, String picture) {
 		String[] Emotions = { input[0], input[1], input[2] };
 		String sentence = input[3];
 

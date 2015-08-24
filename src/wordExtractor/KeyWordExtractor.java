@@ -26,7 +26,7 @@ import Phoneme.PhonemeExtractor;
  */
 
 
-public class extractword {
+public class KeyWordExtractor {
 	static TextMorphAnalyzer k_analyzer= new TextMorphAnalyzer();
 	
 	public static void main(String[] args) throws IOException, MorphException {

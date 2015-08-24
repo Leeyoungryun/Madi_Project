@@ -7,8 +7,8 @@ import java.io.ObjectInputStream;
 import org.apache.lucene.analysis.ko.morph.MorphException;
 
 import Phoneme.PhonemeTextEngine;
-import wordExtractor.extractword;
-import emotionExtractor.Emotionform;
+import wordExtractor.KeyWordExtractor;
+import emotionExtractor.EmotionChooser;
 
 public class writeTest2 {
 	public static String test(String[] str, String back) {
