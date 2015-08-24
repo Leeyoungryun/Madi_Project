@@ -15,7 +15,6 @@ import model.domain.MemberBean;
 import model.domain.MemoBean;
 import model.domain.MusicBean;
 import EmotionExtract.TendencyCheck;
-import ExtractWord.writeTest;
 import ExtractWord.writeTest2;
 
  
@@ -69,7 +68,12 @@ import ExtractWord.writeTest2;
 			if(emotionResult!=null){
 				int memberNum = Integer.parseInt(member);
 				MemoBean gContent = new MemoBean(memberNum, title, content, hashTag1, hashTag2, hashTag3, back);
-				emotionResult = TendencyCheck.result(bean.getTendency(), emotionResult);
+				
+				if(bean.getTendency() != null){
+					emotionResult = TendencyCheck.result(bean.getTendency(), emotionResult);
+					System.out.println("성향 Yes");
+				}
+				
 				MusicBean music = MusicDAO.selectMusic(emotionResult);
 				if(music == null){
 					response.sendRedirect("error.jsp");
