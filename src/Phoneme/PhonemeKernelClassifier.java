@@ -9,9 +9,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.io.Serializable;
-import java.util.*;
-
-import weka.classifiers.*;
 import weka.classifiers.functions.*;
 import weka.classifiers.functions.supportVector.*;
 import weka.core.*;
