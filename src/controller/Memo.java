@@ -71,7 +71,6 @@ import emotionExtractor.TendencyCheck;
 				
 				if(bean.getTendency() != null){
 					emotionResult = TendencyCheck.result(bean.getTendency(), emotionResult);
-					System.out.println("성향 Yes");
 				}
 				
 				MusicBean music = MusicDAO.selectMusic(emotionResult);
