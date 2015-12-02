@@ -34,7 +34,7 @@
 	  <div class="size">
 		    <article class="post post-blog">
 		    <br><br><p class="title">That day</p><br>
-		      <img src="http://photo.toast.com/aaaadc/abc/head.png"/>
+		      <img src="<%=request.getContextPath()%>/img/head.png"/>
 		      <div class="details">
 					<div class="meta">
 					  <p><i class="fa fa-user icolor"></i> Written by <strong>${member.name}</strong></p>

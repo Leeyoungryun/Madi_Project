@@ -22,7 +22,7 @@
 	    	} 
 
 	    function bgChange(select){
-	   		document.getElementById("bg").style.background = "url(http://photo.toast.com/aaaadc/abc/" + select + ".jpg)";
+	   		document.getElementById("bg").style.background = "url(<%=request.getContextPath()%>/img/" + select + ".jpg)";
 	   		document.getElementById("back").value = select;
 	    }
 	    </script>
@@ -40,7 +40,7 @@
 	    <article class="post post-blog">
 	      <br><br>
 	      <p class="title">Today</p><br>
-	      <img id=head src="http://photo.toast.com/aaaadc/abc/head.png"/>
+	      <img id=head src="<%=request.getContextPath()%>/img/head.png"/>
 	      <div class="details">
 	      	  <center>
 	      	  <button class="picBtn" onclick="bgChange('love');">¡Ü</button>

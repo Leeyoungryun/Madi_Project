@@ -15,6 +15,11 @@
 				}
 				return true;
 			}
+			
+			function sendDelete(){
+				document.updateForm.command.value = "delete";
+				document.updateForm.submit();			
+			}	
 		</script>
 	</head>
 	<body>
@@ -29,7 +34,7 @@
 		<div class="size">
 		    <article class="post post-blog">
 		      <br><br><p class="title">Update</p><br>
-		      <img src="http://photo.toast.com/aaaadc/abc/head.png"/>
+		      <img src="<%=request.getContextPath()%>/img/head.png"/>
 		      <div class="details">    
 			      <form name="updateForm" method="post" action="memo.do" onSubmit="return checkValid()">
 			      	<input type="hidden" value="update" name="command">
@@ -50,7 +55,7 @@
 			        </div>
 					<div class="btn-group" data-grouptype="OR">
 						<input type="submit" value="Update" class="no-line btn btn-primary btn-large btn-caps">
-						<input type="reset" value="Delete" class="no-line btn btn-secondary btn-large btn-caps">
+						<input type="button" value="Delete" onClick="sendDelete()" class="no-line btn btn-secondary btn-large btn-caps">
 			        </div>
 				  </form>
 		      </div>

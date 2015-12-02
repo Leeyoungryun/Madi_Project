@@ -166,7 +166,7 @@ public class MemoBean implements Serializable{
 	}
 	
 	public String getBackUrl() {
-		return "http://photo.toast.com/aaaadc/abc/" + this.back + ".jpg";
+		return "../Madi/img/" + this.back + ".jpg";
 	}
 
 	public String getWriteday() {
