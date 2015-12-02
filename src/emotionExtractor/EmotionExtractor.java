@@ -3,6 +3,10 @@ package emotionExtractor;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.net.URL;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import Phoneme.PhonemeTextEngine;
 
@@ -11,7 +15,9 @@ public class EmotionExtractor {
 	public static String test(String[] str, String back) {
 		
 		String picture = back;
-		String path ="C:/project/Madi_Project/data/Madi.dat";
+		String webPath = EmotionExtractor.class.getClassLoader().getResource("").getPath();
+		String path = EmotionExtractor.class.getClassLoader().getResource("").getPath().substring(0, webPath.length()-9)+"/Madi.dat";
+		System.out.println("gg"+path);
 		String result=ExtractEmotions(str,picture,path);
 		
 	return result;

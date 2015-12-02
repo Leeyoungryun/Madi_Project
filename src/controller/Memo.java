@@ -198,4 +198,9 @@ import emotionExtractor.TendencyCheck;
 			}
 		}
 	}
+
+	private char[] getPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
