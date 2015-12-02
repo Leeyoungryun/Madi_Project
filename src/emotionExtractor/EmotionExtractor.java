@@ -17,7 +17,6 @@ public class EmotionExtractor {
 		String picture = back;
 		String webPath = EmotionExtractor.class.getClassLoader().getResource("").getPath();
 		String path = EmotionExtractor.class.getClassLoader().getResource("").getPath().substring(0, webPath.length()-9)+"/Madi.dat";
-		System.out.println("gg"+path);
 		String result=ExtractEmotions(str,picture,path);
 		
 	return result;
