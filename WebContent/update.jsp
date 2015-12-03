@@ -6,6 +6,10 @@
 		<link href = "<%=request.getContextPath()%>/css/write.css" rel="stylesheet">
 		<title>¼öÁ¤</title>
 		<script>
+			window.onload = function(){
+				document.getElementById("bg").style.background = "url(<%=resultContent.getBackUrl()%>)";
+			}; 
+			
 			function checkValid() {
 			    var f = window.document.updateForm;
 			
